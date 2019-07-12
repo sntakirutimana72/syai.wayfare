@@ -1,11 +1,5 @@
 * {box-sizing: border-box;}
 
-li.inner-m {
-    color: #00f;
-    font-size: 14px; 
-    padding: 10px 30px;
-}
-
 .acc {
     top: 45px;
     z-index: 1;
