@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Travel schedule and Trip booking system",
   "main": "syaiServer.js",
-  "start": "node syaiServer.js",
-  "homepage": "/",
+  "scripts": {
+    "start": "node syaiServer.js"
+  },
   "author": "Ntakirutimana Steven by Andela",
   "license": "ISC",
   "dependencies": {
