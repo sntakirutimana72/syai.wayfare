@@ -1,8 +1,8 @@
 {
-  "name": "way-farer",
+  "name": "Wayfarer",
   "version": "1.0.0",
   "description": "Travel schedule and Trip booking system",
-  "main": "wayFare_main_server.js",
+  "main": "syaiServer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
