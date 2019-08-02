@@ -106,7 +106,7 @@ const proceedWithRegistration = () => {
                 ).fail(
                         ({responseText: error}) => alert(error)
                 );
-        } else alert(data);
+        } else alert(signup);
 };
 
 const powerUpUI = () => {
