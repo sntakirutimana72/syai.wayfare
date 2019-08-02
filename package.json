@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Travel schedule and Trip booking system",
   "main": "syaiServer.js",
-  "start": "node syaiServer.js",
   "scripts": {
     "start": "node syaiServer.js"
   },
