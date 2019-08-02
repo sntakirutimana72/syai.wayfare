@@ -1,11 +1,12 @@
 {
-  "name": "Wayfarer",
+  "name": "way-farer",
   "version": "1.0.0",
   "description": "Travel schedule and Trip booking system",
   "main": "syaiServer.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "/"
   },
+  "homepage: "/",
   "author": "Ntakirutimana Steven by Andela",
   "license": "ISC",
   "dependencies": {
