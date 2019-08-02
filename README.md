@@ -25,3 +25,5 @@ The App comprises of Graphical User Interfaces - GUIs, which are ;
 
 ## wayfarer API
 wayfarer API is a transport reservation simulation that provide the clients with the possiblities to signup to the web API and sign in and make some reservations based on the available trips posted by the web managers.
+## warfarer API root [/]
+wayfarer root is a welcoming page or an introductory page which from the visitor can be directed to different pages to register, to seek help, to view offered services and ask for guidance.
