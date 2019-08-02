@@ -29,7 +29,14 @@ router.get('/', (req, res) => {
                         status: 'success',
                         data: {
                                 me: getMe(req),
-                                trips: req.context.models.trips
+                                trips: (function() {
+                                        let tris = {}, {trips} = req.context.models;
+                                        Object.keys(trips).forEach( (trip_id) => {
+                                                if (trips[trip_id].status != 'Cancelled') 
+                                                        tris[trip_id] = trips[trip_id];
+                                        });
+                                        return Object.keys(tris).length ? tris : null;
+                                }) ()
                         }
                 });
         } else res.redirect('/');

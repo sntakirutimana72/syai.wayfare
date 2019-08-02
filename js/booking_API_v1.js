@@ -37,7 +37,7 @@ const unloadBookings = () => {
                         );
                 });
         } else $('[book-trip-cli-msg-nav]').append(
-                `<div a-book-item style="text-align: center;"><i>0 Found</i></div>`);
+                `<div a-book-item style="text-align:center;margin:10%;padding:5px;"><i>0 Found</i></div>`);
 };
 
 const cancelBooking = function() {
