@@ -22,7 +22,7 @@ const unloadTrips = () => {
                                         </div>
                                         <div item-col b-da>
                                                 <span item-col-header>Trip Date</span>
-                                                <span book-due-date>${ftris[trip_id].trip_date}</span>
+                                                <span book-due-date>${tris[trip_id].trip_date}</span>
                                         </div>
                                         <div item-col b-da>
                                                 <span item-col-header>Transport Means</span>
