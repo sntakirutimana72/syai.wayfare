@@ -6,7 +6,7 @@
   "scripts": {
     "test": "/"
   },
-  "homepage: "/",
+  "homepage": "/",
   "author": "Ntakirutimana Steven by Andela",
   "license": "ISC",
   "dependencies": {
