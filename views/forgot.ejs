@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="eng">
+        <head>
+                <meta charset="utf-8">
+                <title>Forgot?</title>
+
+                <script src='../js/jquery_3_4_1.js'></script>
+                <script src='../js/events_core_API_v1.js'></script>
+                <script src='../js/user_forgot_API.js'></script>
+
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel='stylesheet' type="text/css" href="../css/css_core_view.css">
+                <link rel='stylesheet' type="text/css" href="../css/css_user_forgot_core.css">
+        </head>
+
+        <body>
+                <div m-menu-bar>
+                        <a company-brand href="/">
+                                <div c-logo><img src="../icons/company-logo.png" alt="LOGO" /></div>
+                                <div c-name><i id="way">WAY</i><i id="fare">FARER</i></div>
+                        </a>
+                        <div exp-colps-logo>
+                                <img src="../icons/menu.png" alt="More" />
+                        </div>
+                </div>
+                <div m-menu-bar-options class="hide">
+                        <ul>
+                                <li class="menu-item"><a href="/help.htm">Help</a></li>
+                                <li class="menu-item"><a href="/about.htm">About Us</a></li>
+                                <li class="menu-item"><a href="/auth/signin">Sign In</a></li>
+                                <li class="menu-item"><a href="/auth/signup">Sign Up</a></li>
+                                <li class="menu-item"><a href="/services.htm">Services</a></li>
+                        </ul>
+                </div>
+
+                <div class='forgot-form'> 
+                        <div forgot-header>Retrieve Account</div>
+                        
+                        <form class="form-fields" for-forgot>
+                                <label for="firstname">Firstname</label>
+                                <div class="textInput">
+                                        <input type="text" id="firstname" class="field" placeholder="Firstname">
+                                </div>
+        
+                                <label for="lastname">Lastname</label>
+                                <div class="textInput">
+                                        <input type="text" id="lastname" class="field" placeholder="Lastname">
+                                </div>
+        
+                                <div class="textInput" gender f-off>
+                                        <div gender-label c-lab>Gender</div>
+                                        <div gender-value c-val>
+                                                Custom <input type="radio" name='gender' value='value' checked>
+                                                Female <input type="radio" name='gender' value='female'>
+                                                Male <input type="radio" name='gender' value='male'>
+                                        </div>
+                                </div>
+        
+                                <div class="textInput" date-of-birth f-off>
+                                        <div dOfb-label c-lab>Date Of Birth</div>
+                                        <div dOfb-value c-val>
+                                                <input type="date">
+                                        </div>
+                                </div>
+        
+                                <label for="email">Email address</label>
+                                <div class="textInput">
+                                        <input type="text" id="email" class="field" placeholder="email_example@wayfarer.it">
+                                </div>
+
+                                <label for="n-password">New Password</label>
+                                <div class="textInput">
+                                        <input type="password" id="n-password" class="field" placeholder="New Password"
+                                        ><div class="button" show-pass>
+                                                <span dot-show></span>
+                                                <span dot-show></span>
+                                                <span dot-show></span>
+                                        </div>
+                                </div>
+
+                                <div class="textInput" account-group f-off>
+                                        <div acc-g-lab c-lab>Member Group</div>
+                                        <div acc-g-value c-val>
+                                                Client <input type="radio" name='acc-group' value='normal' checked>
+                                                Staff <input type="radio" name='acc-group' value='admin'>
+                                        </div>
+                                </div>
+
+                                <label for="g-auth">Authentication Key</label>
+                                <div class="textInput hide" g-auth>
+                                        <input type="password" id="g-auth" class="field" placeholder="Authentication Key"
+                                        ><div class="button" show-pass>
+                                                <span dot-show></span>
+                                                <span dot-show></span>
+                                                <span dot-show></span>
+                                        </div>
+                                </div>
+        
+                                <div class="button" restore>
+                                        Restore
+                                </div>
+                        </form>
+                </div>
+        </body>
+</html>

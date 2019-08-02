@@ -1,0 +1,98 @@
+[profile-header] {
+        font-size: 15px;
+        margin-top: 5%;
+        padding: 15px 25px;
+        color: rgb(79, 55, 122);
+        border-radius: 20px 20px  0 0;
+        background-color: rgba(51, 221, 207, 0.3);
+
+}
+
+[profile-header] , form[for-profile] {
+        float: right;
+        width: 450px;
+        margin-right: 10%;
+}
+
+form[for-profile] {
+        background-color: rgba(185, 197, 204, 0.2);
+        padding: 25px;
+        margin-bottom: 5%;
+        border-radius: 0 0 20px 20px;
+        border: none;
+        float: right;
+}
+
+div.textInput input[type='text'], 
+div.textInput input[type='password'] {
+        width: 84.5%;
+        padding: 12px 25px;
+        border-radius: 20px 0 0 20px;
+}
+
+div.textInput .button, [profile-header],  
+div.textInput[f-off], input {
+        font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+}
+
+div.textInput .button {
+        border-radius: 0 20px 20px 0;
+        padding: 12px 20px;
+        padding-top: 14px;
+        font-size: 12px;
+        display: inline;
+        width: 15%;
+}
+
+div.textInput .button:hover [dot-show] {
+        background-color: hotpink;
+}
+
+div.textInput {
+        background: none;
+        margin-bottom: 20px;
+}
+
+[profile-header], [c-val], [c-lab] {
+        text-align: center;
+}
+
+div.textInput[f-off] {
+        background-color: #fff;
+        border-radius: 20px;
+        font-size: 13px;
+}
+
+.textInput[f-off] div[c-lab] {
+        padding: 10px;
+        min-width: 100px;
+        border-radius: 20px 0 0 20px;
+}
+
+[c-lab], div.textInput .button {
+        background-color: rgba(4, 160, 82, 0.25);
+}
+
+.textInput[f-off] div {
+        display: inline-block;
+}
+
+[commit] {
+        border: 2px solid rgb(43, 190, 209);
+        background-color: #fff;
+        border-radius: 20px;
+        margin: 0 150px;
+        padding: 7px 10px;
+}
+
+.button[commit]:hover {
+        background: transparent;
+}
+
+[c-val] {
+        padding-left: 50px;
+}
+
+[userId-value][c-val], [creatOn-value][c-val] {
+        padding-left: 8px;
+}
