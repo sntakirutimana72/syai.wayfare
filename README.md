@@ -22,3 +22,8 @@ The App comprises of Graphical User Interfaces - GUIs, which are ;
    made reservation or booked on the very same trip, should get a trip-status-update
    
 7. Any user should be able to edit his or her profile, generally make some changes to his or her account via an account view.
+
+## wayfarer API
+wayfarer API is a transport reservation simulation that provide the clients with the possiblities to signup to the web API and sign in and make some reservations based on the available trips posted by the web managers.
+## wayfarer API root [/]
+wayfarer root is a welcoming page or an introductory page which from the visitor can be directed to different pages to register, to seek help, to view offered services and ask for guidance.
