@@ -94,10 +94,10 @@ form {
 .user {
   width: 50%;
   padding: .5em 0;
-  font-size: 11px;
+  font-size: 11.6px;
   text-align: center;
   display: inline-block;
-  transition: .8s;
+  transition: .4s;
   font-family: 'Gill Sans', 'Gill Sans MT',  'Trebuchet MS', sans-serif;
 }
 
