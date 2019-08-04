@@ -9,9 +9,7 @@
 }
 
 [profile-header] , form[for-profile] {
-        float: right;
         width: 450px;
-        margin-right: 10%;
 }
 
 form[for-profile] {
@@ -20,7 +18,11 @@ form[for-profile] {
         margin-bottom: 5%;
         border-radius: 0 0 20px 20px;
         border: none;
+}
+
+div.profile-form {
         float: right;
+        margin-right: 10%;
 }
 
 div.textInput input[type='text'], 
