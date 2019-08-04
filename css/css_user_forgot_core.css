@@ -13,9 +13,7 @@
 }
 
 [forgot-header] , form[for-forgot] {
-        float: right;
         width: 450px;
-        margin-right: 10%;
 }
 
 form[for-forgot] {
@@ -24,7 +22,10 @@ form[for-forgot] {
         margin-bottom: 5%;
         border-radius: 0 0 20px 20px;
         border: none;
+}
+div.forgot-form {
         float: right;
+        margin-right: 10%;
 }
 
 div.textInput input[type='text'], 
