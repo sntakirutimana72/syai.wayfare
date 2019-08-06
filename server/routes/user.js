@@ -1,5 +1,7 @@
 //user manipulation routes like GET, POST, and DELETE verbs
+
 import userController from '../controllers/userController';
+import express from 'express';
 
 /*
 const express = require('express');
@@ -91,7 +93,6 @@ router.get('/forgot', (req, res) => {
 });
 */
 
-const express = require('express');
 const router = express.Router();
 
 router.get('/clients', userController.getAllClients);

@@ -1,4 +1,5 @@
 import tripController from '../controllers/tripController';
+import express from 'express';
 
 /*
 const express = require('express');
@@ -175,7 +176,6 @@ router.delete('/:trip_id', (req, res, next) => {
 
 */
 
-const express = require('express');
 const router = express.Router();
 
 router.get('/', tripController.getAll);

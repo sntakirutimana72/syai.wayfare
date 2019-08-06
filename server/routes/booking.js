@@ -1,4 +1,5 @@
 import bookingController from '../controllers/bookingController';
+import express from 'express';
 
 /*
 const express = require('express');
@@ -162,7 +163,6 @@ router.delete('/:booking_id', (req, res, next) => {
 });
 */
 
-const express = require('express');
 const router = express.Router();
 
 router.get('/', bookingController.getAll);

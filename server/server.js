@@ -1,8 +1,9 @@
-const fs = require('fs');
-const routes = require('./routes');
-const models = require('./models');
-const express = require('express');
-const uuidv4 = require('uuid/v4');
+import fs from 'fs';
+import routes from './routes';
+import models from './models';
+import express from 'express';
+import uuidv4 from 'uuid/v4';
+
 const port = process.env.PORT;
 
 const app = express();
