@@ -118,4 +118,4 @@ router.get('/clients', (req, res, next) => {
   } else return next('error');
 });
 
-module.exports = router;
+export default router;
