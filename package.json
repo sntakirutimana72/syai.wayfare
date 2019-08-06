@@ -10,13 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "babel": "^6.23.0",
-    "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.4",
-    "ejs": "^2.6.2",
     "eslint": "^6.0.1",
     "express": "^4.17.1",
-    "express-session": "^1.16.2",
-    "jasmine": "^3.4.0",
     "jquery": "^3.4.1",
     "mocha": "^6.2.0",
     "uuid": "^3.3.2"
