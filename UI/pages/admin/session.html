@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="eng">
+        <head>
+                <meta charset="utf-8">
+                <title>HOME</title>
+
+                <script src='../js/jquery_3_4_1.js'></script>
+                <script src='../js/events_core_API_v1.js'></script>
+                <script> let data = JSON.stringify(data); </script>
+                <script src='../js/user_account_info_API.js'></script>
+                <script src='../js/create_form_API.js'></script>
+                <script src='../js/user_API_v1.js'></script>
+                <script src='../js/user_API_staff.js'></script>
+
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel='stylesheet' type="text/css" href="../css/css_core_view.css">
+                <link rel='stylesheet' type="text/css" href="../css/css_user_core.css">
+                <link rel='stylesheet' type="text/css" href="../css/css_trip_form_core.css">
+        </head>
+
+        <body>
+                <div m-menu-bar>
+                        <a company-brand href="/">
+                                <div c-logo><img src="../icons/company-logo.png" alt="LOGO" /></div>
+                                <div c-name><i id="way">WAY</i><i id="fare">FARER</i></div>
+                        </a>
+
+                        <div user-acc><i>Hi, Mr/Mrs account-owner</i>
+                                <div user-acc-options>
+                                        <span user-acc-opt-it em>Signed in as</span>
+                                        <img user-acc-opt-it src="../icons/user.png" alt="Profile Picture" />
+                                        <a user-acc-opt-it edit href="/session/profile">EDIT PROFILE</a>
+                                        <a user-acc-opt-it logout href="/session/logout">LOGOUT</a>
+                                </div>
+                        </div>
+
+                        <div exp-colps-logo>
+                                <img src="../icons/menu.png" alt="More" />
+                        </div>
+                </div>
+
+                <div m-menu-bar-options class="hide">
+                        <ul>
+                                <li class="menu-item"><a href="../help.html">Help</a></li>
+                                <li class="menu-item"><a href="../about.html">About Us</a></li>
+                                <li class="menu-item"><a href="../services.html">Services</a></li>
+                        </ul>
+                </div>
+
+                <div left-nav-data>
+                        <div left-nav>
+                                <div left-nav-menu-i m-m>
+                                        <img src="../icons/menu.png" title="MY MENU" />
+                                        <span l-m-name>GENERAL</span>
+                                </div>
+
+                                <div left-nav-menu-i>
+                                        <div m-i m-create>
+                                                <img create-trip src="../icons/create.png" title="Create Trip" />
+                                                <span l-m-name>CREATE A TRIP</span>
+                                        </div>
+                                </div>
+
+                                <div left-nav-menu-i>
+                                        <div m-i>
+                                                <img left-nav-op-icon all-trips src="../icons/trip.png" title="All Trips" />
+                                                <span l-m-name>AVAILABLE TRIPS</span>
+                                        </div>
+                                        <ul left-nav-m001>
+                                                <li l-n-m001><a href="/trips"><span roll></span>ALL</a></li>
+                                                <li l-n-m001><a href="/trips/Bus"><span roll></span>BUS</a></li>
+                                                <li l-n-m001><a href="/trips/Boat"><span roll></span>BOAT</a></li>
+                                                <li l-n-m001><a href="/trips/Train"><span roll></span>TRAIN</a></li>
+                                                <li l-n-m001><a href="/trips/Flight"><span roll></span>FLIGHT</a></li>
+                                                <li l-n-m001><a><span roll></span>SEARCH</a></li>
+                                        </ul>
+                                </div>
+
+                                <div left-nav-menu-i>
+                                        <div m-i>
+                                                <img left-nav-op-icon my-booked-seats src="../icons/booked.png" title="All Bookings" />
+                                                <span l-m-name>BOOKED SEATS</span>
+                                        </div>
+                                        <ul left-nav-m001>
+                                                <li l-n-m001><a href="/bookings"><span roll></span>ALL</a></li>
+                                                <li l-n-m001><a href="/bookings/Bus"><span roll></span>BUS</a></li>
+                                                <li l-n-m001><a href="/bookings/Boat"><span roll></span>BOAT</a></li>
+                                                <li l-n-m001><a href="/bookings/Train"><span roll></span>TRAIN</a></li>
+                                                <li l-n-m001><a href="/bookings/Flight"><span roll></span>FLIGHT</a></li>
+                                                <li l-n-m001><a><span roll></span>SEARCH</a></li>
+                                        </ul>
+                                </div>
+
+                                <div left-nav-menu-i>
+                                        <div m-i>
+                                                <img left-nav-op-icon sched-more src="../icons/more.png" title="More" />
+                                                <span l-m-name>MORE</span>
+                                        </div>
+                                        <ul left-nav-m001>
+                                                <li l-n-m001><a><span roll></span>MAKE NEW OFFER</a></li>
+                                                <li l-n-m001><a href="/session/clients"><span roll></span>ALL CLIENTS</a></li>
+                                                <li l-n-m001><a href="/messages"><span roll></span>MESSAGES</a></li>
+                                        </ul>
+                                </div>
+                        </div>
+                </div>
+
+                <div body-data>
+                        <div data-nav n001>
+                                <div b-data-struct all-u-info>
+                                        <span b-data-struct-title>TOTAL USERS</span>
+                                        <span b-data-struct-values>
+                                                <o>Users:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                                <div b-data-struct ma-u-info>
+                                        <span b-data-struct-title>MALE</span>
+                                        <span b-data-struct-values>
+                                                <o>Users:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                                <div b-data-struct fe-u-info>
+                                        <span b-data-struct-title>FEMALE</span>
+                                        <span b-data-struct-values>
+                                                <o>Users:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                                <div b-data-struct cu-u-info>
+                                        <span b-data-struct-title>OTHER</span>
+                                        <span b-data-struct-values>
+                                                <o>Users:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                        </div>
+
+                        <div data-nav n002>
+                                <div b-data-struct all-tri-info>
+                                        <span b-data-struct-title>TOTAL TRIPS</span>
+                                        <span b-data-struct-values>
+                                                <o>Trips:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                                <div b-data-struct bus-tri-info>
+                                        <span b-data-struct-title>BUS TRIPS</span>
+                                        <span b-data-struct-values>
+                                                <o>Trips:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                                <div b-data-struct bo-tri-info>
+                                        <span b-data-struct-title>BOAT TRIPS</span>
+                                        <span b-data-struct-values>
+                                                <o>Trips:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                                <div b-data-struct tra-tri-info>
+                                        <span b-data-struct-title>TRAIN TRIPS</span>
+                                        <span b-data-struct-values>
+                                                <o>Trips:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                                <div b-data-struct fli-tri-info>
+                                        <span b-data-struct-title>FLIGHT TRIPS</span>
+                                        <span b-data-struct-values>
+                                                <o>Trips:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                                <div b-data-struct ca-tri-info>
+                                        <span b-data-struct-title>CANCELLED TRIPS</span>
+                                        <span b-data-struct-values>
+                                                <o>Trips:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                        </div>
+
+                        <div data-nav n003>
+                                <div b-data-struct all-booki-info>
+                                        <span b-data-struct-title>TOTAL BOOKINGS</span>
+                                        <span b-data-struct-values>
+                                                <o>Bookings:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                                <div b-data-struct bu-booki-info>
+                                        <span b-data-struct-title>BUS BOOKINGS</span>
+                                        <span b-data-struct-values>
+                                                <o>Bookings:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                                <div b-data-struct bo-booki-info>
+                                        <span b-data-struct-title>BOAT BOOKINGS</span>
+                                        <span b-data-struct-values>
+                                                <o>Bookings:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                                <div b-data-struct tra-booki-info>
+                                        <span b-data-struct-title>TRAIN BOOKINGS</span>
+                                        <span b-data-struct-values>
+                                                <o>Bookings:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                                <div b-data-struct fli-booki-info>
+                                        <span b-data-struct-title>FLIGHT BOOKINGS</span>
+                                        <span b-data-struct-values>
+                                                <o>Bookings:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                                <div b-data-struct ca-booki-info>
+                                        <span b-data-struct-title>CANCELLED BOOKINGS</span>
+                                        <span b-data-struct-values>
+                                                <o>Bookings:</o><o num>8, 321</o>
+                                                <o>Percent:</o><i b-data-struct-perc>89%</i>
+                                        </span>
+                                </div>
+                        </div>
+
+                        <div data-nav 004>
+                                <div b-data-struct All-I-created>
+                                        <span b-data-struct-title>ALL TRIPS CREATED BY ME</span>
+                                        <div my-creation-data-struct>
+                                                <div my-total>
+                                                        <span>TOTAL</span>
+                                                        <span><o>Trips:</o><o num>8, 921</o></span>
+                                                        <span><o>Percent:</o><i>68%</i></span>
+                                                </div>
+                                                <div my-bus>
+                                                        <span>BUS</span>
+                                                        <span><o>Trips:</o><o num>8, 921</o></span>
+                                                        <span><o>Percent:</o><i>68%</i></span>
+                                                </div>
+                                                <div my-boat>
+                                                        <span>BOAT</span>
+                                                        <span><o>Trips:</o><o num>8, 921</o></span>
+                                                        <span><o>Percent:</o><i>68%</i></span>
+                                                </div>
+                                                <div my-train>
+                                                        <span>TRAIN</span>
+                                                        <span><o>Trips:</o><o num>8, 921</o></span>
+                                                        <span><o>Percent:</o><i>68%</i></span>
+                                                </div>
+                                                <div my-flight>
+                                                        <span>FLIGHT</span>
+                                                        <span><o>Trips:</o><o num>8, 921</o></span>
+                                                        <span><o>Percent:</o><i>68%</i></span>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+
+                <div create-form> 
+                        <div create-header>
+                                Create A Trip
+                                <span x>X</span>
+                                <span ok>OK</span>
+                        </div>
+                        
+                        <form class="form-fields" for-create>
+                                <div class="textInput">
+                                        <div orig c-lab>Origin</div
+                                        ><div orig c-val><input type="text" id="origin" class="field" placeholder="Origin"></div>
+                                </div>
+
+                                <div class="textInput">
+                                        <div destin c-lab>Destination</div
+                                        ><div destin c-val><input type="text" id="destiny" class="field" placeholder="Destination"></div>
+                                </div>
+
+                                <div class="textInput">
+                                        <div trans-mode c-lab>Mode</div
+                                        ><div trans-mode c-val>
+                                                <select>
+                                                        <option selected disabled>Select transportation mode</option>
+                                                        <option>Bus</option>
+                                                        <option>Boat</option>
+                                                        <option>Train</option>
+                                                        <option>Flight</option>
+                                                </select>
+                                        </div>
+                                </div>
+
+                                <div class="textInput">
+                                        <div li-pla-num c-lab>Licence plate</div
+                                        ><div li-pla-num c-val><input type="text" id="bus -lic-num" class="field" placeholder="Licence plate number"></div>
+                                </div>
+        
+                                <div class="textInput">
+                                        <div seat-cap c-lab>Seat capacity</div
+                                        ><div seat-cap c-val><input type="text" id="seat-capacity" class="field" placeholder="seating capacity"></div>
+                                </div>
+
+                                <div class="textInput">
+                                        <div trip_d c-lab>Trip date</div
+                                        ><div trip_d c-val><input type="date" id="trip-date" class="field" placeholder="Trip date"></div>
+                                </div>
+        
+                                <div class="textInput">
+                                        <div faree c-lab>Fare</div
+                                        ><div faree c-val><input type="text" id="faree" class="field" placeholder="Fare"></div>
+                                </div>
+                        </form>
+                </div>
+        </body>
+</html>
