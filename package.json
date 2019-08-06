@@ -2,13 +2,14 @@
   "name": "way-farer",
   "version": "1.0.0",
   "description": "Travel schedule and Trip booking system",
-  "main": "syaiServer.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node syaiServer.js"
+    "start": "node server.js"
   },
   "author": "Ntakirutimana Steven by Andela",
   "license": "ISC",
   "dependencies": {
+    "babel": "^6.23.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
     "ejs": "^2.6.2",

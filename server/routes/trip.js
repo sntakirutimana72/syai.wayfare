@@ -1,3 +1,6 @@
+import tripController from '../controllers/tripController';
+
+/*
 const express = require('express');
 const uuidv4 = require('uuid/v4');
 
@@ -170,4 +173,16 @@ router.delete('/:trip_id', (req, res, next) => {
   } else return next('error');
 });
 
-module.exports = router;
+*/
+
+const express = require('express');
+const router = express.Router();
+
+router.get('/', tripController.getAll);
+router.get('/:trip_id', tripController.getUnique);
+router.post('/', tripController.addTrip);
+router.put('/', tripController.updateTrip);
+router.delete('/trip_id', tripController.deleteUnique);
+router.delete('/', tripController.deleteAll);
+
+export default router;
