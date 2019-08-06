@@ -1,3 +1,7 @@
+import bookingController from '../controllers/bookingController';
+import express from 'express';
+
+/*
 const express = require('express');
 const uuidv4 = require('uuid/v4');
 
@@ -157,5 +161,15 @@ router.delete('/:booking_id', (req, res, next) => {
   }
   else return next('error');
 });
+*/
 
-module.exports = router;
+const router = express.Router();
+
+router.get('/', bookingController.getAll);
+router.get('/:booking_id', bookingController.getUnique);
+router.post('/', bookingController.book);
+router.put('/', bookingController.updateBooking);
+router.delete('/booking_id', bookingController.deleteUnique);
+router.delete('/', bookingController.deleteAll);
+
+export default router;

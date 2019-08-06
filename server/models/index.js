@@ -4,11 +4,14 @@ let bookings = {};
 
 let trips = {};
 
+let messages = {};
+
 const admin_auth = "NURU";
 
-module.exports = {
+export default {
   users,
   trips,
   bookings,
+  messages, 
   admin_auth
 };

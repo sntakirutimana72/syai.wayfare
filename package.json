@@ -2,22 +2,25 @@
   "name": "way-farer",
   "version": "1.0.0",
   "description": "Travel schedule and Trip booking system",
-  "main": "syaiServer.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node syaiServer.js"
+    "start:server": "babel-node -- ./server/server.js", 
+    "start:dev": "nodemon --exec babel-node -- ./server/server.js"
   },
   "author": "Ntakirutimana Steven by Andela",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.4",
-    "ejs": "^2.6.2",
     "eslint": "^6.0.1",
     "express": "^4.17.1",
-    "express-session": "^1.16.2",
-    "jasmine": "^3.4.0",
     "jquery": "^3.4.1",
     "mocha": "^6.2.0",
     "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "nodemon": "^1.19.1"
   }
 }

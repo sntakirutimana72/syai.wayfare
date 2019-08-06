@@ -1,6 +1,6 @@
 // session routes
 
-const express = require('express');
+import express from 'express';
 
 const router = express.Router();
 
@@ -118,4 +118,4 @@ router.get('/clients', (req, res, next) => {
   } else return next('error');
 });
 
-module.exports = router;
+export default router;

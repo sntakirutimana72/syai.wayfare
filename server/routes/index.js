@@ -1,9 +1,11 @@
-const session = require('./session');
-const booking = require('./booking');
-const user = require('./user');
-const trip = require('./trip');
+import booking from './booking';
+import message from './message';
+import user from './user';
+import  trip from './trip';
 
-module.exports = {
-  session, booking,
-  user, trip
+export default {
+  booking, 
+  message, 
+  trip, 
+  user
 };
