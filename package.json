@@ -4,16 +4,21 @@
   "description": "Travel schedule and Trip booking system",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start:server": "babel-node -- ./server/server.js"
   },
   "author": "Ntakirutimana Steven by Andela",
   "license": "ISC",
   "dependencies": {
-    "babel": "^6.23.0",
     "eslint": "^6.0.1",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
     "mocha": "^6.2.0",
     "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5"
   }
 }
