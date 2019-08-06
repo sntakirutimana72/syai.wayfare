@@ -11,7 +11,7 @@ class messageController {
   static sendToAll(req, res) {}
 
   // Direct message
-  static directMessage(req, res) {}
+  static directSend(req, res) {}
 }
 
 export default messageController;

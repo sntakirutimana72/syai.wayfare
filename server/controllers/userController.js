@@ -11,7 +11,7 @@ class userController {
   static addUser(req, res) {}
 
   // Sign in user
-  static siginUser(res, req) {}
+  static signinUser(res, req) {}
 
   // update user info
   static updateUser(req, res) {}
