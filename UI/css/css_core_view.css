@@ -73,13 +73,12 @@ li.menu-item {
 
 li.menu-item a {
   display: block;
-  font-size: 11.5px;
+  font-size: 11.6px;
   padding: 10px 20px;
   text-align: center;
   border-bottom: none;
   text-decoration: none;
   color: rgb(221, 113, 198);
-  font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 }
 
 li.focused-tab a {
@@ -92,10 +91,6 @@ form {
   border: 2px solid rgba(0, 220, 66, 0.2);
 }
 
-div.signup-form {
-  min-width: 350px;
-}
-
 .user-category {
   border-radius: 15px;
   background-color: rgba(0, 220, 66, 0.3);
@@ -104,11 +99,11 @@ div.signup-form {
 .user {
   width: 50%;
   padding: .6em 0;
-  font-size: 11.6px;
+  font-size: 12px;
+  color: rgb(66, 19, 60);
   text-align: center;
   display: inline-block;
   transition: .4s;
-  font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 }
 
 .client {
@@ -127,6 +122,10 @@ div.signup-form {
   margin-top: 5px;
 }
 
+div.signup-form {
+  max-width: 500px;
+}
+
 .textInput {
   margin: 10px 20px;
   border-radius: 4px;
@@ -141,7 +140,7 @@ div.signup-form {
   width: 100%;
 }
 
-.field:hover, .button:hover, [company-brand], [user-acc], div.user:hover, a:hover, .inner-m, [dot], div[s-item], [exp-colps-logo], [left-nav-menu-i], span[ok], span[x], [delete-book] {
+.field:hover, .button:hover, [company-brand], [user-acc], div.user:hover, a:hover, .inner-m, [dot], div[s-item], [exp-colps-logo], [left-nav-menu-i], span[ok], span[x], [item-col][controls] {
   cursor: pointer;
 }
 
@@ -211,4 +210,60 @@ select, input:focus {
 .button.rgt {
   border-radius: 0 20px 20px 0;
   border-left: 2px solid rgba(200, 200, 200, 0.1);
+}
+
+[search-header], .user, [search-key-field], li.menu-item a, .user-category {
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+}
+
+/**
+* Search Engine
+**/
+
+[search-engine] {
+  border: 2px solid rgba(163, 67, 11, 0.3);
+  background-color: #fff;
+  border-radius: 15px;
+  position: absolute;
+  min-width: 300px;
+  padding: 10px;
+  left: 221px;
+  top: 90px;
+}
+
+[search-header] {
+  font-size: 12px;
+  color: rgb(115, 19, 139);
+}
+
+[search-field] {
+  border-top: 2px solid rgba(131, 106, 106, .15);
+  margin-top: 5px;
+  padding: 5px;
+}
+
+[search-icon] {
+  width: 25px;
+  height: 25px;
+  padding-top: 5px;
+}
+
+[search-key-field] {
+  float: right;
+  border: none;
+  padding: 8px 5px;
+  min-width: 260px;
+  background: none;
+  color: saddlebrown;
+}
+
+[search-key-field]:focus {
+  border: none;
+}
+
+[search-engine] [x-close] {
+  float: right;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: rgba(255, 0, 0, .6);
 }

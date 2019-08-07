@@ -6,7 +6,7 @@
   <title>HOME</title>
 
   <script src='../js/jquery_3_4_1.js'></script>
-  <script src='../js/events_core_API_1.js'></script>
+  <script src='../js/events_core_API_v1.js'></script>
   <script>let data = JSON.stringify(data); </script>
   <script src='../js/user_account_info_API.js'></script>
   <script src='../js/booking_form_API.js'></script>
@@ -21,7 +21,7 @@
 
 <body>
   <div m-menu-bar>
-    <a company-brand href="/">
+    <a company-brand href="./index.html">
       <div c-logo><img src="../images/company-logo.png" alt="LOGO" /></div>
       <div c-name><i id="way">WAY</i><i id="fare">FARER</i></div>
     </a>
@@ -30,13 +30,13 @@
       <div user-acc-options>
         <span user-acc-opt-it em>Signed in as</span>
         <img user-acc-opt-it src="../images/user.png" alt="Profile Picture" />
-        <a user-acc-opt-it edit href="/session/profile">EDIT PROFILE</a>
-        <a user-acc-opt-it logout href="/session/logout">LOGOUT</a>
+        <a user-acc-opt-it edit href="./profile.html">EDIT PROFILE</a>
+        <a user-acc-opt-it logout href="./signin.html">LOGOUT</a>
       </div>
     </div>
 
     <div exp-colps-logo>
-      <img src="../icons/menu.png" alt="More" />
+      <img src="../images/menu.png" alt="More" />
     </div>
   </div>
 
@@ -68,11 +68,11 @@
           <span l-m-name>AVAILABLE TRIPS</span>
         </div>
         <ul left-nav-m001>
-          <li l-n-m001><a href="/trips"><span roll></span>ALL</a></li>
-          <li l-n-m001><a href="/trips/Bus"><span roll></span>BUS</a></li>
-          <li l-n-m001><a href="/trips/Boat"><span roll></span>BOAT</a></li>
-          <li l-n-m001><a href="/trips/Train"><span roll></span>TRAIN</a></li>
-          <li l-n-m001><a href="/trips/Flight"><span roll></span>FLIGHT</a></li>
+          <li l-n-m001><a href="./trips1.html"><span roll></span>ALL</a></li>
+          <li l-n-m001><a href="./trips1.html"><span roll></span>BUS</a></li>
+          <li l-n-m001><a href="./trips1.html"><span roll></span>BOAT</a></li>
+          <li l-n-m001><a href="./trips1.html"><span roll></span>TRAIN</a></li>
+          <li l-n-m001><a href="./trips1.html"><span roll></span>FLIGHT</a></li>
           <li l-n-m001><a><span roll></span>SEARCH</a></li>
         </ul>
       </div>
@@ -83,23 +83,12 @@
           <span l-m-name>MY BOOKING SCHEDULE</span>
         </div>
         <ul left-nav-m001>
-          <li l-n-m001><a href="/bookings"><span roll></span>ALL</a></li>
-          <li l-n-m001><a href="/bookings/Bus"><span roll></span>BUS</a></li>
-          <li l-n-m001><a href="/bookings/Boat"><span roll></span>BOAT</a></li>
-          <li l-n-m001><a href="/bookings/Train"><span roll></span>TRAIN</a></li>
-          <li l-n-m001><a href="/bookings/Flight"><span roll></span>FLIGHT</a></li>
+          <li l-n-m001><a href="./bookings1.html"><span roll></span>ALL</a></li>
+          <li l-n-m001><a href="./bookings1.html"><span roll></span>BUS</a></li>
+          <li l-n-m001><a href="./bookings1.html"><span roll></span>BOAT</a></li>
+          <li l-n-m001><a href="./bookings1.html"><span roll></span>TRAIN</a></li>
+          <li l-n-m001><a href="./bookings1.html"><span roll></span>FLIGHT</a></li>
           <li l-n-m001><a><span roll></span>SEARCH</a></li>
-        </ul>
-      </div>
-
-      <div left-nav-menu-i>
-        <div m-i>
-          <img left-nav-op-icon sched-more src="../images/more.png" title="More" />
-          <span l-m-name>MORE</span>
-        </div>
-        <ul left-nav-m001>
-          <li l-n-m001><a><span roll></span>MAKE NEW OFFER</a></li>
-          <li l-n-m001><a><span roll></span>LEAVE A MESSAGE</a></li>
         </ul>
       </div>
     </div>
