@@ -3,14 +3,14 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Dashboard - Bookings</title>
+  <title>Dashboard - Clients</title>
 
   <script src='../../js/jquery_3_4_1.js'></script>
   <script src='../../js/events_core_API_v1.js'></script>
   <script> let data = JSON.stringify(data); </script>
   <script src='../../js/user_account_info_API.js'></script>
   <script src='../../js/create_form_API.js'></script>
-  <script src='../../js/booking_API_v1.js'></script>
+  <script src='../../js/client_API_v1.js'></script>
   <script src='../../js/user_API_v1.js'></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -82,7 +82,7 @@
           <img left-nav-op-icon my-booked-seats src="../../images/booked.png" title="All Bookings" />
           <span l-m-name>BOOKED SEATS</span>
         </div>
-        <ul left-nav-m001 bo-se>
+        <ul left-nav-m001>
           <li l-n-m001><a href="./bookings.html"><span roll></span>ALL</a></li>
           <li l-n-m001><a href="./bookings.html"><span roll></span>BUS</a></li>
           <li l-n-m001><a href="./bookings.html"><span roll></span>BOAT</a></li>
@@ -97,12 +97,13 @@
           <img left-nav-op-icon sched-more src="../../images/more.png" title="More" />
           <span l-m-name>MORE</span>
         </div>
-        <ul left-nav-m001>
+        <ul left-nav-m001 bo-se>
           <li l-n-m001><a><span roll></span>ALL CLIENTS</a></li>
         </ul>
       </div>
     </div>
   </div>
+
 
   <div create-form>
     <div create-header>
