@@ -19,7 +19,6 @@ class userController {
   // delete single client-user
   static removeUniqueClient(req, res) {}
 
-  //delete all client-users
   static removeAllClients(req, res) {}
 }
 
