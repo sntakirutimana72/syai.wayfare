@@ -68,9 +68,9 @@ div[c-name] {
   font-size: 18px;
   border-radius: 8px;
   position: relative;
-  color: rgb(200, 255, 150);
+  color: rgb(57, 26, 65);
   font-family: Verdana, Tahoma, sans-serif;
-  background-color: rgba(255, 255, 255, .3);
+  background-color: rgba(255, 255, 255, .6);
 }
 
 .slide-on {
@@ -80,14 +80,14 @@ div[c-name] {
 #slide-h {
   font-size: 30px;
   padding-bottom: 20px;
-  color: rgb(105, 218, 165);
+  color: rgb(15, 73, 46);
 }
 
 blockquote {
   font-size: 13px;
   padding-top: 40px;
   font-style: italic;
-  color: rgb(122, 216, 216);
+  color: rgb(53, 104, 104);
 }
 
 .lslide {
@@ -123,4 +123,30 @@ blockquote {
 
 a {
   text-decoration: none;
+}
+
+[all-links-shortcut] {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  text-align: right;
+}
+
+[all-links-shortcut] [links-panel] {
+  display: none;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(1, 31, 16);
+}
+
+[all-links-shortcut]:hover [links-panel] {
+  display: block;
+}
+
+[all-links-shortcut] li a {
+  display: block;
+  font-size: 14px;
+  color: aquamarine;
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif
 }
