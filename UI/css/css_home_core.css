@@ -70,7 +70,7 @@ div[c-name] {
   position: relative;
   color: rgb(200, 255, 150);
   font-family: Verdana, Tahoma, sans-serif;
-  background-color: rgba(255, 255, 255, .05);
+  background-color: rgba(255, 255, 255, .3);
 }
 
 .slide-on {
