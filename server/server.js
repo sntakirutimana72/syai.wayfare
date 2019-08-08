@@ -1,31 +1,26 @@
-import fs from 'fs';
-import routes from './routes';
-import models from './models';
 import express from 'express';
-
-const port = process.env.PORT || 3000 ;
+import routes from './routes';
 
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use((req, res, next) => {
-  req.context = { models };
-  next()
+app.get('/', (req, res, next) => {
+  console.log('here');
+  next();
 });
 
-app.use('/trips', routes.trip);
-app.use('/auth', routes.user);
-app.use('/message', routes.message);
-app.use('/bookings', routes.booking);
+app.use('/api/v1', routes);
 
-app.get('/', (req, res) => {});
+app.use((err, req, res, next) => {
+  console.error(err.message);
+  next();
+});
 
-const render = (filename) => fs.readFileSync(__dirname + filename);
-
+const port = process.env.PORT || 3000 ;
 app.listen(port, () =>
-  console.log(`WAY-FARER server started on port ${port}`),
+  console.log(`WAYFARER server starting on port ${port}`),
 );
 
 export default  app;

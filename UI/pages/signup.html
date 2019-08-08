@@ -35,12 +35,9 @@
   </div>
 
   <div class='signup-form'>
-    <div class="user-category">
-      <div class="user client active">CLIENT GROUP</div
-      ><div class="user admin">ADMININISTRATOR GROUP</div>
-    </div>
+    <div sign-header>SIGN UP</div>
 
-    <form class="form-fields">
+    <form class="form-fields" action="/api/v1/auth/signup" method="POST">
       <label for="firstname">Firstname</label>
       <div class="textInput">
         <input type="text" id="firstname" class="field" placeholder="Firstname">
@@ -77,14 +74,14 @@
         <input type="password" id="Re-password" class="field" placeholder="Re-enter Password">
       </div>
 
-      <label for="admin-auth">Admin-Group Authenty</label>
-      <div class="textInput hide" admin-auth>
-        <input type="password" id="admin-auth" class="field" placeholder="Admin Athentication">
-      </div>
+      <!--
+        <label for="admin-auth">Admin-Group Authenty</label>
+        <div class="textInput hide" admin-auth>
+          <input type="password" id="admin-auth" class="field" placeholder="Admin Athentication">
+        </div>
+      -->
 
-      <div class="button continue">
-        CONTINUE
-      </div>
+      <div class="button continue">Continue</div>
     </form>
   </div>
 </body>

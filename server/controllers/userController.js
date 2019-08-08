@@ -2,7 +2,7 @@ const render = (filename) => fs.readFileSync(__dirname + filename);
 
 class userController {
   // Get all client-users
-  static getAllClients(req, res) {}
+  static async getAllClients(req, res) {}
   
   // Get a single client-user
   static getUniqueClient(req, res) {}

@@ -50,6 +50,7 @@ i#fare {
 
 i#way, i#fare {
   font-weight: bold;
+  font-family: initial;
 }
 
 ul {
@@ -85,37 +86,11 @@ li.focused-tab a {
   border-bottom: 2px solid rgb(11, 211, 151);
 }
 
-form {
-  border-radius: 0 0 10px 10px;
-  background-color: #fff;
-  border: 2px solid rgba(0, 220, 66, 0.2);
-}
-
-.user-category {
-  border-radius: 15px;
-  background-color: rgba(0, 220, 66, 0.3);
-}
-
-.user {
-  width: 50%;
-  padding: .6em 0;
-  font-size: 12px;
-  color: rgb(66, 19, 60);
+[sign-header] {
+  font-size: 2.5em;
+  padding: 20px 10px;
   text-align: center;
-  display: inline-block;
-  transition: .4s;
-}
-
-.client {
-  border-radius: 10px 50px 0 10px;
-}
-
-.admin {
-  border-radius: 50px 10px 10px 0;
-}
-
-.active {
-  background-color: #fff;
+  color: rgb(210, 30, 171)
 }
 
 .form-fields {
@@ -123,13 +98,19 @@ form {
 }
 
 div.signup-form {
-  max-width: 500px;
+  max-width: 420px;
+  border-radius: 15px;
+  background-color: #ffe;
+  margin: 5% calc((100% - 420px) / 2);
+  margin-bottom: 1.5%;
+  border: 2px solid rgba(48, 28, 65, .2);
 }
 
-.textInput {
+div.signup-form .textInput {
   margin: 10px 20px;
-  border-radius: 4px;
-  background-color: rgb(248, 248, 245);
+  border-radius: 5px;
+  background: none;
+  border: 2px solid rgba(155, 106, 199, 0.07);
 }
 
 .field {
@@ -212,7 +193,7 @@ select, input:focus {
   border-left: 2px solid rgba(200, 200, 200, 0.1);
 }
 
-[search-header], .user, [search-key-field], li.menu-item a, .user-category {
+* {
   font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 }
 
