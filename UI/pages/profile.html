@@ -19,7 +19,7 @@
 
 <body>
   <div m-menu-bar>
-    <a company-brand href="../../index.html">
+    <a company-brand href="./index.html">
       <div c-logo><img src="../images/company-logo.png" alt="LOGO" /></div>
       <div c-name><i id="way">WAY</i><i id="fare">FARER</i></div>
     </a>
@@ -46,7 +46,7 @@
     </ul>
   </div>
 
-  <div class='profile-form'>
+  <div class='for-profile signup-form'>
     <div profile-header>Edit Profile Information</div>
 
     <form class="form-fields" for-profile>
@@ -57,14 +57,12 @@
 
       <label for="firstname">Firstname</label>
       <div class="textInput">
-        <input type="text" id="firstname" class="field" placeholder="Firstname"
-        ><div class="button">Edit</div>
+        <input type="text" id="firstname" class="field" placeholder="Firstname">
       </div>
 
       <label for="lastname">Lastname</label>
       <div class="textInput">
-        <input type="text" id="lastname" class="field" placeholder="Lastname"
-        ><div class="button">Edit</div>
+        <input type="text" id="lastname" class="field" placeholder="Lastname">
       </div>
 
       <div class="textInput" gender f-off>
@@ -84,8 +82,7 @@
 
       <label for="password">Password</label>
       <div class="textInput">
-        <input type="password" id="password" class="field" placeholder="Password"
-        ><div class="button">Edit</div>
+        <input type="password" id="password" class="field" placeholder="Password">
       </div>
 
       <div class="textInput" createdOn f-off>
@@ -93,9 +90,7 @@
         <div creatOn-value c-val>---</div>
       </div>
 
-      <div class="button" commit>
-        Commit
-      </div>
+      <input type="submit" class="button" commit value="update">
     </form>
   </div>
 </body>

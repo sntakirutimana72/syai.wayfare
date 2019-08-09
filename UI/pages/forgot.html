@@ -16,7 +16,7 @@
 
 <body>
   <div m-menu-bar>
-    <a company-brand href="../../index.html">
+    <a company-brand href="./index.html">
       <div c-logo><img src="../images/company-logo.png" alt="LOGO" /></div>
       <div c-name><i id="way">WAY</i><i id="fare">FARER</i></div>
     </a>
@@ -34,74 +34,30 @@
     </ul>
   </div>
 
-  <div class='forgot-form'>
-    <div forgot-header>Retrieve Account</div>
+  <div class='for-forgot signup-form'>
+    <div forgot-header>Reset account password</div>
 
-    <form class="form-fields" for-forgot>
-      <label for="firstname">Firstname</label>
-      <div class="textInput">
-        <input type="text" id="firstname" class="field" placeholder="Firstname">
-      </div>
-
-      <label for="lastname">Lastname</label>
-      <div class="textInput">
-        <input type="text" id="lastname" class="field" placeholder="Lastname">
-      </div>
-
-      <div class="textInput" gender f-off>
-        <div gender-label c-lab>Gender</div>
-        <div gender-value c-val>
-          Custom <input type="radio" name='gender' value='value' checked>
-          Female <input type="radio" name='gender' value='female'>
-          Male <input type="radio" name='gender' value='male'>
-        </div>
-      </div>
-
-      <div class="textInput" date-of-birth f-off>
-        <div dOfb-label c-lab>Date Of Birth</div>
-        <div dOfb-value c-val>
-          <input type="date">
-        </div>
-      </div>
-
+    <form action="./newPassword.html" class="form-fields" for-forgot>
       <label for="email">Email address</label>
       <div class="textInput">
-        <input type="text" id="email" class="field" placeholder="email_example@wayfarer.it">
+        <input type="text" id="email" class="field" placeholder="Enter your email">
       </div>
 
-      <label for="n-password">New Password</label>
-      <div class="textInput">
-        <input type="password" id="n-password" class="field" placeholder="New Password">
-        <div class="button" show-pass>
-          <span dot-show></span>
-          <span dot-show></span>
-          <span dot-show></span>
-        </div>
-      </div>
-
-      <div class="textInput" account-group f-off>
-        <div acc-g-lab c-lab>Member Group</div>
-        <div acc-g-value c-val>
-          Client <input type="radio" name='acc-group' value='normal' checked>
-          Staff <input type="radio" name='acc-group' value='admin'>
-        </div>
-      </div>
-
-      <label for="g-auth">Authentication Key</label>
-      <div class="textInput hide" g-auth>
-        <input type="password" id="g-auth" class="field" placeholder="Authentication Key">
-        <div class="button" show-pass>
-          <span dot-show></span>
-          <span dot-show></span>
-          <span dot-show></span>
-        </div>
-      </div>
-
-      <div class="button" restore>
-        Restore
-      </div>
+      <input type="submit" class="button" restore value="restore">
     </form>
   </div>
 </body>
 
 </html>
+
+<!--
+  /**
+  @show & hide UI
+  **/
+
+  <div class="button" show-pass>
+    <span dot-show></span>
+    <span dot-show></span>
+    <span dot-show></span>
+  </div>
+-->
