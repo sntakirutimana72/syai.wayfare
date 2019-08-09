@@ -1,0 +1,40 @@
+[content-header] {
+  padding: 20px;
+  font-size: 3.5em;
+  color: blueviolet;
+  text-align: center;
+  background-color: #eee;
+}
+
+[svc-bd] {
+  -webkit-column-count: 4;
+  column-count: 4;
+  padding: 20px;
+}
+
+[s-item] img {
+  width: 50px;
+}
+
+[s-i-data] {
+  display: inline;
+}
+
+span[s-i-data] {
+  float: right;
+  font-size: 1.25em;
+  padding-top: 10px;
+  color: darkmagenta;
+  width: calc(100% - 55px);
+}
+
+[s-item] {
+  padding: 15px;
+  border-bottom: 3px solid rgba(134, 15, 65, .07);
+}
+
+[svc-col-cont] {
+  color: rgb(6, 70, 40);
+  padding-top: 20px; 
+  font-size: 18px;
+} 
