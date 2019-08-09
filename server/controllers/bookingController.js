@@ -2,18 +2,13 @@ import bookings from '../models/bookings';
 import fDate from '../helpers/fDate';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-// import users from '../models/users';
 // import trips from '../models/trips';
 
 dotenv.config();
 
 class bookingController {
   // get All bookings
-  static async getAll(req, res) {
-    return res.status(200).json({
-      status: 200, data: bookings
-    });
-  }
+  static async getAll(req, res) {}
   
   // Get a booking by id
   static async getUnique(req, res) {
