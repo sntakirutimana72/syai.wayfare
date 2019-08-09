@@ -1,11 +1,16 @@
-.signup-form {
-  margin: 10% 30%;
+.in-out .button {  
+  width: 44.8%;
 }
 
-.in-out .button {
-  width: 44.8%;
+div.in-out {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 a {
   text-decoration: none;
+}
+
+div.signup-form {
+  margin-top: 10%;
 }
