@@ -1,13 +1,16 @@
-import bookingController from '../controllers/bookingController';
+import bookingCtrl from '../controllers/bookingController';
+import authentic from '../middlewares/authenticate';
+// import isparam from '../middlewares/isParam';
+
 import express from 'express';
 
 const router = express.Router();
 
-router.get('/', bookingController.getAll);
-router.get('/:booking_id', bookingController.getUnique);
-router.post('/', bookingController.book);
-router.patch('/:status', bookingController.updateBooking);
-router.delete('/booking_id', bookingController.deleteUnique);
-router.delete('/', bookingController.deleteAll);
+router.post('/',  authentic, bookingCtrl.book);
+router.get('/',  authentic, bookingCtrl.getAll);
+router.get('/:id',  authentic, bookingCtrl.getUnique);
+// router.delete('/',  authentic, bookingCtrl.deleteAll);
+router.patch('/:id',  authentic, bookingCtrl.updateBooking);
+router.delete('/:id',  authentic, bookingCtrl.deleteUnique);
 
 export default router;

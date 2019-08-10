@@ -1,6 +1,6 @@
-import booking from './booking';
 import user from './user';
-import  trip from './trip';
+import trip from './trip';
+import booking from './booking';
 import express from 'express';
 
 const router = express.Router();

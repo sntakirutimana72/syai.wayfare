@@ -13,6 +13,7 @@ app.use((req, res, next) => {
 
 app.use((err, res, req, next) => {
   console.log(err.message);
+  next();
 })
 
 app.use('/api/v1', routes);

@@ -4,7 +4,8 @@ export class userSchema {
   static signup(data) {
     const schema = Joi.object().keys({
       email: Joi.string()
-        .regex(/^[a-z][a-zA-Z0-9_]+@wayfarer.it$/)
+        .email()
+        .regex(/^([a-z]([a-zA-Z0-9_]+)@wayfarer.it)$/)
         .required(), 
       firstname: Joi.string()
         .regex(/^([a-zA-Z]{2,})\s?([a-zA-Z]{2,})$/)
@@ -23,7 +24,11 @@ export class userSchema {
       is_admin: Joi.bool().strict()
         .default(false).required()
     });
-    return Joi.validate(data, schema);
+
+    try {
+      const user = Joi.validate(data, schema);
+      return user.value ? user.value : null;
+    } catch {return null;}
   }
 
   static signin(data) {
@@ -35,7 +40,11 @@ export class userSchema {
         .regex(/^[a-zA-Z0-9_@\-+\s=$.,;#&]{4,}$/)
         .required()
     });
-    return Joi.validate(data, schema);
+
+    try {
+      const user = Joi.validate(data, schema);
+      return user.value ? user.value : null;
+    } catch {return null;}
   }
 
   static update(data) {
@@ -47,26 +56,31 @@ export class userSchema {
         .regex(/^([a-zA-Z]{2,})\s?([a-zA-Z]{2,})$/)
         .required(), 
       password: join.string()
-        .regex(/^[a-zA-Z0-9_@-+\s=$.,;#&]{4,}$/)
+        .regex(/^[a-zA-Z0-9_@\-+\s=$.,;#&]{4,}$/)
         .required()
     });
-    return Joi.validate(data, schema);
+    
+    try {
+      const user = Joi.validate(data, schema);
+      return user.value ? user.value : null;
+    } catch {return null;}
   }
 };
 
-export class bookingSchema {
+export class bookSchema {
   static book(data) {
     const schema = Joi.object().keys({
       trip_id: Joi.string()
-        .regex(/^[1-9][0-9]+$/)
-        .required(), 
-      user_id: Joi.string()
         .regex(/^[1-9][0-9]+$/)
         .required(),
       seat_number: Joi.string()
         .regex(/^[1-9][0-9]+$/)
     });
-    return Joi.validate(data, schema);
+
+    try {
+      const newBook = Joi.validate(data, schema);
+      return newBook.value ? newBook.value : null;
+    } catch {return null;}
   }
 
   static update(data) {
@@ -74,7 +88,11 @@ export class bookingSchema {
       seat_number: Joi.string()
         .regex(/^[1-9][0-9]+$/).required()
     });
-    Joi.validate(data, schema);
+
+    try {
+      const update = Joi.validate(data, schema);
+      return update.value ? update.value : null;
+    } catch {return null;}
   }
 };
 
@@ -101,7 +119,10 @@ export class tripSchema {
         .default('active')
         .required()
     });
-    return Joi.validate(data, schema);
+    
+    try {
+      const trip = Joi.validate(data, schema);
+      return trip.value ? trip.value : null;
+    } catch {return null;}
   }
 };
-

@@ -7,7 +7,7 @@ export default class {
 
   static uniquEmail(email) {
     return !(users.find( user => {
-      if (user && user.email == email) return true;
+      return user ? (user.email == email) : null;
     }));
   }
 }
