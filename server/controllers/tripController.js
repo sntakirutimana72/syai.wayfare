@@ -1,4 +1,3 @@
-// import logger from '../helpers/logger';
 import trips from '../models/trips';
 import fDate from '../helpers/fDate';
 import filter from '../helpers/filter';
