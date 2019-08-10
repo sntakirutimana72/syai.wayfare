@@ -1,11 +1,12 @@
 import Joi from 'joi';
+import logger from './logger';
 
 export class userSchema {
   static signup(data) {
     const schema = Joi.object().keys({
       email: Joi.string()
         .email()
-        .regex(/^([a-z]([a-zA-Z0-9_]+)@wayfarer.it)$/)
+        .regex(/^([a-z][a-zA-Z0-9_]+@wayfarer.it)$/)
         .required(), 
       firstname: Joi.string()
         .regex(/^([a-zA-Z]{2,})\s?([a-zA-Z]{2,})$/)
@@ -15,8 +16,8 @@ export class userSchema {
         .required(), 
       gender: Joi.string()
         .valid(['male', 'female', 'custom'])
-        .insensitive().default('custom'),
-      dateOfB: Joi.date().max('1-1-2004')
+        .insensitive().default('custom').required(),
+      dateOfB: Joi.date().max('1-1-2005')
         .iso().required(),
       password: Joi.string()
         .regex(/^([a-zA-Z0-9_@\-+\s=$.,;#&]{4,})$/)
@@ -27,7 +28,7 @@ export class userSchema {
 
     try {
       const user = Joi.validate(data, schema);
-      return user.value ? user.value : null;
+      return !user.error ? user.value : null;
     } catch {return null;}
   }
 
@@ -43,7 +44,7 @@ export class userSchema {
 
     try {
       const user = Joi.validate(data, schema);
-      return user.value ? user.value : null;
+      return !user.error ? user.value : null;
     } catch {return null;}
   }
 
@@ -55,14 +56,14 @@ export class userSchema {
       lastname: Joi.string()
         .regex(/^([a-zA-Z]{2,})\s?([a-zA-Z]{2,})$/)
         .required(), 
-      password: join.string()
+      password: Joi.string()
         .regex(/^[a-zA-Z0-9_@\-+\s=$.,;#&]{4,}$/)
         .required()
     });
     
     try {
       const user = Joi.validate(data, schema);
-      return user.value ? user.value : null;
+      return !user.error ? user.value : null;
     } catch {return null;}
   }
 };
@@ -79,7 +80,7 @@ export class bookSchema {
 
     try {
       const newBook = Joi.validate(data, schema);
-      return newBook.value ? newBook.value : null;
+      return !newBook.error ? newBook.value : null;
     } catch {return null;}
   }
 
@@ -91,7 +92,7 @@ export class bookSchema {
 
     try {
       const update = Joi.validate(data, schema);
-      return update.value ? update.value : null;
+      return !update.error ? update.value : null;
     } catch {return null;}
   }
 };
@@ -99,8 +100,8 @@ export class bookSchema {
 export class tripSchema {
   static create(data) {
     const schema = Joi.object().keys({
-      seating_capacity: Joi.string()
-        .regex(/^[1-9][0-9]+$/)
+      seating_capacity: Joi.number()
+        .integer().min(1)
         .required(), 
       bus_licence_number: Joi.string()
         .regex(/^[a-zA-Z0-9]+$$/)
@@ -109,12 +110,10 @@ export class tripSchema {
         .trim().required(), 
       destination: Joi.string()
         .trim().required(),
-      trip_date: Joi.date().max('1-1-2004')
-        .iso().required(),
-      fare: join.string()
-        .number().min(1)
+      trip_date: Joi.date().iso().required(),
+      fare: Joi.number().min(1)
         .required(), 
-      status: join.string()
+      status: Joi.string()
         .valid(['active', 'cancelled'])
         .default('active')
         .required()
@@ -122,7 +121,7 @@ export class tripSchema {
     
     try {
       const trip = Joi.validate(data, schema);
-      return trip.value ? trip.value : null;
+      return !trip.error ? trip.value : null;
     } catch {return null;}
   }
 };

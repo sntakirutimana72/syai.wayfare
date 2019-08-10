@@ -1,4 +1,5 @@
 import Joi from 'joi';
+import logger from './logger';
 
 export default class {
   static intParam(params) {
@@ -6,9 +7,11 @@ export default class {
       id: Joi.number()
         .integer().min(1).required()
     });
+    
     try {
-      const isDigit = join.validate(params, schema);
-      return isDigit.value ? isDigit.value : null;
+      const isDigit = Joi.validate(params, schema);
+      logger.debug(isDigit.error);
+      return !isDigit.error ? isDigit.value.id : null;
     } catch {return null;}
   }
 
@@ -18,9 +21,10 @@ export default class {
         .valid(['bus', 'boat', 'train', 'flight'])
         .insensitive().required()
     });
+
     try {
-      const iString = join.validate(params, schema);
-      return iString.value ? iString.value : null;
+      const iString = Joi.validate(params, schema);
+      return !iString.error ? iString.value.id : null;
     } catch {return null;}
   }
 }

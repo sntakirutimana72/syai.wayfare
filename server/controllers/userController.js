@@ -53,14 +53,12 @@ class userController {
   // Sign in user
   static signinUser(req, res) {
     let me = userSchema.signin(req.body);
-    if(me) return response.response(
+    if(!me) return response.response(
       res, 401, `Invalid inputs`, true);
     
     const logMeIn = users.find((user) => {
-      logger.debug(user.email, me.email);
       if (user && (me.email === user.email)) return true;
-    });
-    
+    });    
     if (!logMeIn) {
       return response.response(res, 401, 'Authentication Failed', true);
     }
