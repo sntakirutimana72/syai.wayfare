@@ -1,7 +1,9 @@
 import Joi from 'joi';
-import logger from './logger';
 
 export default class {
+  /**
+   * @param {Number} params URL parameter as integer
+  */
   static intParam(params) {
     const schema = Joi.object().keys({
       id: Joi.number()
@@ -10,11 +12,13 @@ export default class {
     
     try {
       const isDigit = Joi.validate(params, schema);
-      logger.debug(isDigit.error);
       return !isDigit.error ? isDigit.value.id : null;
     } catch {return null;}
   }
 
+  /**
+   * @param {String} params URL parameter as string 
+  */
   static stringParam(params) {
     const schema = Joi.object().keys({
       id: Joi.string()

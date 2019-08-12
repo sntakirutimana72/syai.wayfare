@@ -6,6 +6,11 @@ import response from '../helpers/response';
 dotenv.config();
 const secret_key = process.env.SECRET_KEY;
 
+/**
+ * @param {Request} req
+ * @param {Response} res
+ * @param {RequestRedirect} next 
+*/
 export default function(req, res, next) {
   try {
     return jwt.verify(

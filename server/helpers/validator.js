@@ -1,7 +1,9 @@
 import Joi from 'joi';
-import logger from './logger';
 
 export class userSchema {
+  /**
+   * @param {FormData} data User Signup form data object
+  */
   static signup(data) {
     const schema = Joi.object().keys({
       email: Joi.string()
@@ -29,9 +31,12 @@ export class userSchema {
     try {
       const user = Joi.validate(data, schema);
       return !user.error ? user.value : null;
-    } catch {return null;}
+    } catch {return;}
   }
 
+  /**
+   * @param {FormData} data User Signin form data object
+  */
   static signin(data) {
     const schema = Joi.object().keys({
       email: Joi.string()
@@ -45,9 +50,12 @@ export class userSchema {
     try {
       const user = Joi.validate(data, schema);
       return !user.error ? user.value : null;
-    } catch {return null;}
+    } catch {return;}
   }
 
+  /**
+   * @param {FormData} data User update form data object
+  */
   static update(data) {
     const schema = Joi.object().keys({
       firstname: Joi.string()
@@ -64,64 +72,93 @@ export class userSchema {
     try {
       const user = Joi.validate(data, schema);
       return !user.error ? user.value : null;
-    } catch {return null;}
+    } catch {return;}
   }
 };
 
 export class bookSchema {
+  /**
+   * @param {FormData} data New Booking form data object
+  */
   static book(data) {
     const schema = Joi.object().keys({
-      trip_id: Joi.string()
-        .regex(/^[1-9][0-9]+$/)
-        .required(),
-      seat_number: Joi.string()
-        .regex(/^[1-9][0-9]+$/)
+      trip_id: Joi.number()
+        .integer().min(1)
+        .required(), 
+      seat_number: Joi.number()
+        .integer().min(1) 
     });
 
     try {
       const newBook = Joi.validate(data, schema);
+      console.log(newBook);
       return !newBook.error ? newBook.value : null;
-    } catch {return null;}
+    } catch(err) {
+      console.log(err);
+      return;
+    }
   }
 
+  /**
+   * @param {FormData} data Booking update form data object
+  */
   static update(data) {
     const schema = Joi.object().keys({
-      seat_number: Joi.string()
-        .regex(/^[1-9][0-9]+$/).required()
+      seat_number: Joi.number()
+        .integer().min(1)
+        .required(),
     });
 
     try {
       const update = Joi.validate(data, schema);
       return !update.error ? update.value : null;
-    } catch {return null;}
+    } catch {return;}
   }
 };
 
 export class tripSchema {
+  /**
+   * @param {FormData} data Trip creation form data object
+  */
   static create(data) {
     const schema = Joi.object().keys({
       seating_capacity: Joi.number()
         .integer().min(1)
         .required(), 
       bus_licence_number: Joi.string()
-        .regex(/^[a-zA-Z0-9]+$$/)
+        .regex(/^[a-zA-Z0-9]+$/)
         .required(),
       origin: Joi.string()
         .trim().required(), 
       destination: Joi.string()
         .trim().required(),
       trip_date: Joi.date().iso().required(),
-      fare: Joi.number().min(1)
-        .required(), 
+      fare: Joi.number().min(1).required(), 
       status: Joi.string()
         .valid(['active', 'cancelled'])
-        .default('active')
-        .required()
+        .default('active').required()
     });
     
     try {
       const trip = Joi.validate(data, schema);
       return !trip.error ? trip.value : null;
-    } catch {return null;}
+    } catch {return;}
+  }
+
+  /**
+   * @param {FormData} data Trip update form data object
+  */
+  static update(data) {
+    const schema = Joi.object().keys({
+      seating_capacity: Joi.number()
+        .integer().min(1),
+      bus_licence_number: Joi.string()
+        .regex(/^[a-zA-Z0-9]+$/)
+    });
+
+    try {
+      const update = Joi.validate(data, schema);
+      return !update.error ? update.value : null;
+    } catch {return}
   }
 };

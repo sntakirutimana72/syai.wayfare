@@ -3,7 +3,6 @@ import fDate from '../helpers/fDate';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
-import logger from '../helpers/logger';
 import unique from '../helpers/unIdentity';
 import response from '../helpers/response';
 import { userSchema } from '../helpers/validator';
@@ -33,7 +32,7 @@ class userController {
       else {
         user.password = hash;
         const id = unique.uniqueID(users), 
-          created_on = fDate(Date());
+          created_on = fDate.curDate();
         users.push(Object.assign(user, {id, created_on}));
 
         return jwt.sign(
