@@ -1,0 +1,33 @@
+.in-out .button {  
+  width: 44.8%;
+}
+
+.in-out {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+div.signup-form {
+  margin-top: 10%;
+}
+@media screen and (max-width: 600px) {
+  div.signup-form {
+    border: none;
+    border-radius: 6px;
+    padding-bottom: 10px;
+    margin: 0 calc((100% - 400px) / 2);
+    margin-top: calc((100% - 250px) / 2);
+  }
+}
+@media screen and (max-width: 420px) {
+  div.signup-form {
+    margin: 0;
+    border-radius: 0;
+    background: none;
+    margin-top: calc((100% - 250px) / 2);
+  }
+}

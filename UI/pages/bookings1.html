@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard - My Bookings</title>
+
+  <script src='../js/jquery_3_4_1.js'></script>
+  <script src='../js/events_core_API_v1.js'></script>
+  <script> let data = JSON.stringify(data); </script>
+  <script src='../js/user_account_info_API.js'></script>
+  <script src='../js/booking_form_API.js'></script>
+  <script src='../js/booking_API_v1.js'></script>
+  <script src='../js/user_API_v1.js'></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel='stylesheet' type="text/css" href="../css/css_core_view.css">
+  <link rel='stylesheet' type="text/css" href="../css/css_user_core.css">
+  <link rel='stylesheet' type="text/css" href="../css/css_book_form_core.css">
+</head>
+
+<body>
+  <div m-menu-bar>
+    <a company-brand href="./index.html">
+      <div c-logo><img src="../images/company-logo.png" alt="LOGO" /></div>
+      <div c-name><i id="way">WAY</i><i id="fare">FARER</i></div>
+    </a>
+
+    <div user-acc><i>Hi, Mr/Mrs account-owner</i>
+      <div user-acc-options>
+        <span user-acc-opt-it em>Signed in as</span>
+        <img user-acc-opt-it src="../images/user.png" alt="Profile Picture" />
+        <a user-acc-opt-it edit href="./profile.html">EDIT PROFILE</a>
+        <a user-acc-opt-it logout href="./signin.html">LOGOUT</a>
+      </div>
+    </div>
+
+    <div exp-colps-logo>
+      <img src="../images/menu.png" alt="More" />
+    </div>
+  </div>
+
+  <div m-menu-bar-options class="hide">
+    <ul>
+      <li class="menu-item"><a href="./help.html">Help</a></li>
+      <li class="menu-item"><a href="./about.html">About Us</a></li>
+      <li class="menu-item"><a href="./services.html">Services</a></li>
+    </ul>
+  </div>
+
+  <div left-nav-data>
+    <div left-nav>
+      <div left-nav-menu-i m-m>
+        <img src="../images/menu.png" title="MY MENU" />
+        <span l-m-name>GENERAL</span>
+      </div>
+
+      <div left-nav-menu-i>
+        <div m-i m-booking>
+          <img book-seat src="../images/book.png" title="Book Seat" />
+          <span l-m-name>BOOK A SEAT</span>
+        </div>
+      </div>
+
+      <div left-nav-menu-i>
+        <div m-i>
+          <img left-nav-op-icon all-trips src="../images/trip.png" title="All Trips" />
+          <span l-m-name>AVAILABLE TRIPS</span>
+        </div>
+        <ul left-nav-m001>
+          <li l-n-m001><a href="./trips1.html"><span roll></span>ALL</a></li>
+          <li l-n-m001><a href="./trips1.html"><span roll></span>BUS</a></li>
+          <li l-n-m001><a href="./trips1.html"><span roll></span>BOAT</a></li>
+          <li l-n-m001><a href="./trips1.html"><span roll></span>TRAIN</a></li>
+          <li l-n-m001><a href="./trips1.html"><span roll></span>FLIGHT</a></li>
+          <li l-n-m001><a><span roll></span>SEARCH</a></li>
+        </ul>
+      </div>
+
+      <div left-nav-menu-i>
+        <div m-i>
+          <img left-nav-op-icon my-booked-seats src="../images/booked.png" title="My Trip Booking Plan" />
+          <span l-m-name>MY BOOKING SCHEDULE</span>
+        </div>
+        <ul left-nav-m001 bo-se>
+          <li l-n-m001><a href="./bookings1.html"><span roll></span>ALL</a></li>
+          <li l-n-m001><a href="./bookings1.html"><span roll></span>BUS</a></li>
+          <li l-n-m001><a href="./bookings1.html"><span roll></span>BOAT</a></li>
+          <li l-n-m001><a href="./bookings1.html"><span roll></span>TRAIN</a></li>
+          <li l-n-m001><a href="./bookings1.html"><span roll></span>FLIGHT</a></li>
+          <li l-n-m001><a><span roll></span>SEARCH</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div booking-form>
+    <div booking-header>
+      Book A Seat
+      <span x>X</span>
+      <span ok>OK</span>
+    </div>
+
+    <form class="form-fields" for-booking>
+      <div class="textInput">
+        <div w-mode c-lab>Mode</div>
+        <div w-mode c-val>
+          <select>
+            <option selected disabled>Select transportation mode</option>
+            <option>Bus</option>
+            <option>Boat</option>
+            <option>Train</option>
+            <option>Flight</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="textInput">
+        <div tri-list c-lab>Available trips</div>
+        <div tri-list c-val>
+          <select disabled>
+            <option selected disabled>Select Trip</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="textInput" trip-detail></div>
+
+      <div class="textInput">
+        <div seat-num c-lab>Seat number</div>
+        <div seat-num c-val>
+          <select disabled>
+            <option selected disabled>Select seat number</option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div book-trip-cli-msg-nav></div>
+</body>
+
+</html>
