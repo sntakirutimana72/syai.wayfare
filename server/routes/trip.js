@@ -1,13 +1,14 @@
-import tripController from '../controllers/tripController';
+import tripCtrl from '../controllers/tripController';
+import authentic from '../middlewares/authenticate';
 import express from 'express';
 
 const router = express.Router();
 
-router.get('/', tripController.getAll);
-router.get('/:trip_id', tripController.getUnique);
-router.post('/', tripController.addTrip);
-router.put('/', tripController.updateTrip);
-router.delete('/trip_id', tripController.deleteUnique);
-router.delete('/', tripController.deleteAll);
+router.get('/', authentic, tripCtrl.getAll);
+router.post('/', authentic, tripCtrl.addTrip);
+router.patch('/', authentic, tripCtrl.updateTrip);
+router.get('/:id', authentic, tripCtrl.getUnique);
+router.delete('/', authentic, tripCtrl.deleteAll);
+router.delete('/:id', authentic, tripCtrl.deleteUnique);
 
 export default router;

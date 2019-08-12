@@ -7,9 +7,16 @@
 }
 
 [svc-bd] {
-  -webkit-column-count: 4;
-  column-count: 4;
   padding: 20px;
+}
+
+[svc-col-d] {
+  box-sizing: border-box;
+  padding: 10px;
+  display: inline-block;
+  overflow: auto;
+  float: left;
+  width: 24%;
 }
 
 [s-item] img {
@@ -37,4 +44,14 @@ span[s-i-data] {
   color: rgb(6, 70, 40);
   padding-top: 20px; 
   font-size: 18px;
-} 
+}
+@media screen and (max-width: 800px) {
+  [svc-col-d] {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 400px) {
+  [svc-col-d] {
+    width: 100%;
+  }
+}
