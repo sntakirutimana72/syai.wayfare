@@ -1,0 +1,24 @@
+
+{
+  "yves": {
+      "email": "munontos@wayfarer.it", 
+      "firstname": "UWIMANA", 
+      "lastname": "Yves", 
+      "gender": "male", 
+      "dateOfB": "1994-01-01", 
+      "password": "Mukamanata3", 
+      "is_admin": false,
+      "token": ""
+  },
+
+  "Steven": {
+    "email": "sntakirutimana72@wayfarer.it",
+    "firstname": "Ntakirutimana",
+    "lastname": "Steven",
+    "gender": "male",
+    "dateOfB": "2004-01-01",
+    "password": "Mukamanata3",
+    "is_admin": true,
+    "token": ""
+  }
+}

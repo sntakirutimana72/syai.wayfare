@@ -1,0 +1,256 @@
+body {
+  margin: 0;
+  background-color: rgb(230, 225, 223);
+}
+
+[c-logo], [c-logo] img, [logo] {
+  border-radius: 50%;
+}
+
+div[c-name] {
+  position: absolute;
+  left: 35px;
+  top: 12px;
+}
+
+[m-menu-bar] {
+  padding: 5px 8px;
+}
+
+[m-menu-bar-options], [m-menu-bar] {
+  background-color: rgb(25, 5, 43);
+}
+
+div[c-logo] {
+  padding: 1px;
+  border: 1px solid orange;
+}
+
+[company-brand], div[exp-colps-logo] {
+  display: inline-block;
+}
+
+div[exp-colps-logo] {
+  float: right;
+  margin-top: 2.5px;
+}
+
+div[c-logo] img, div[c-logo], div[exp-colps-logo] img {
+  width: 26px;
+  height: 26px;
+}
+
+i#way {
+  color: orange;
+}
+
+i#fare {
+  color: darkcyan;
+}
+
+i#way, i#fare {
+  font-weight: bold;
+  font-family: initial;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  list-style-type: none;
+}
+
+li.menu-item {
+  float: right;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+li.menu-item a {
+  display: block;
+  font-size: 11.6px;
+  padding: 10px 20px;
+  text-align: center;
+  border-bottom: none;
+  text-decoration: none;
+  color: rgb(221, 113, 198);
+}
+
+@media screen and (max-width: 500px) {
+  li.menu-item a {
+    padding: 10px 14px;
+  }
+}
+
+li.focused-tab a {
+  border-bottom: 2px solid rgb(11, 211, 151);
+}
+
+[sign-header] {
+  font-size: 2.5em;
+  padding: 20px 10px;
+  text-align: center;
+  color: rgb(210, 30, 171)
+}
+
+.form-fields {
+  margin-top: 5px;
+}
+
+div.signup-form {
+  max-width: 420px;
+  border-radius: 15px;
+  background-color: #ffe;
+  margin: 5% calc((100% - 420px) / 2);
+  margin-bottom: 1.5%;
+  border: 2px solid rgba(48, 28, 65, .2);
+}
+
+div.signup-form .textInput {
+  margin: 10px 20px;
+  border-radius: 5px;
+  background: none;
+  border: 2px solid rgba(155, 106, 199, 0.07);
+}
+
+.field {
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 14px 20px;
+  border: none;
+  width: 100%;
+}
+
+.field:hover, .button:hover, [company-brand], [user-acc], div.user:hover, a:hover, .inner-m, [dot], div[s-item], [exp-colps-logo], [left-nav-menu-i], span[ok], span[x], [item-col][controls] {
+  cursor: pointer;
+}
+
+label {
+  display: none;
+  position: relative;
+  top: 18px;
+  left: 40px;
+  padding: 2px 10px;
+  font-size: 1.05vw;
+  border-radius: 4px;
+  color: rgb(197, 24, 119);
+  background-color: #fff;
+}
+
+select, input:focus {
+  outline: none;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 2px solid rgb(0, 178, 229)
+}
+
+.unfoc-inp-data {
+  background-color: #eee;
+}
+
+.button {
+  text-align: center;
+  border-radius: 10px;
+  color: rgb(20, 2.5, 0);
+}
+
+.button:hover {
+  background-color: #3f8f8f;
+}
+
+.in-out-grp {
+  margin: auto;
+  margin-top: 50px;
+}
+
+.in-out {
+  margin: 10px auto;
+}
+
+.in-out, .in-out-grp {
+  max-width: 250px;
+  border-radius: 20px;
+  background-color: rgb(0, 50, 100);
+  border: 2px solid rgba(255, 255, 255, .2);
+}
+
+.in-out-grp .button, .in-out .button {
+  display: inline-block;
+  border-radius: 0;
+  padding: 6px;
+  width: 50%;
+  font-size: 14px;
+  color: #fff;
+  border-radius: 20px 0 0 20px;
+}
+
+.in-out .button {
+  width: 43.2%;
+}
+
+.button.rgt {
+  border-radius: 0 20px 20px 0;
+  border-left: 2px solid rgba(200, 200, 200, 0.1);
+}
+
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+}
+
+/**
+* Search Engine
+**/
+
+[search-engine] {
+  border: 2px solid rgba(163, 67, 11, 0.3);
+  background-color: #fff;
+  border-radius: 15px;
+  position: absolute;
+  min-width: 300px;
+  padding: 10px;
+  left: 221px;
+  top: 90px;
+}
+
+[search-header] {
+  font-size: 12px;
+  color: rgb(115, 19, 139);
+}
+
+[search-field] {
+  border-top: 2px solid rgba(131, 106, 106, .15);
+  margin-top: 5px;
+  padding: 5px;
+}
+
+[search-icon] {
+  width: 25px;
+  height: 25px;
+  padding-top: 5px;
+}
+
+[search-key-field] {
+  float: right;
+  border: none;
+  padding: 8px 5px;
+  min-width: 260px;
+  background: none;
+  color: saddlebrown;
+}
+
+[search-key-field]:focus {
+  border: none;
+}
+
+[search-engine] [x-close] {
+  float: right;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: rgba(255, 0, 0, .6);
+}
