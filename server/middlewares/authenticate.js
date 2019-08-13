@@ -11,7 +11,7 @@ export default function (req, res, next) {
     return jwt.verify(
       req.headers.token, secret_key, (err, decoded) => {
         if (err) {
-          return response.response(res, 401, 'Unauthorized', true)
+          return response.response(res, 401, 'Unauthorized personnel', true)
         }
 
         const user = decoded.data;
