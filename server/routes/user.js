@@ -1,15 +1,15 @@
-import contr from '../controllers/userController';
-import auth from '../middlewares/authenticate';
+import userCtrl from '../controllers/userController';
 import express from 'express';
 
 const router = express.Router();
 
-router.post('/signup', contr.addUser);
-router.post('/signin', auth, contr.signinUser);
-router.delete('/', auth, contr.removeAllClients);
-router.get('/clients', auth, contr.getAllClients);
-router.put('/:user_email', auth, contr.updateUser);
-router.delete('/:user_email', auth, contr.removeUniqueClient);
-router.get('/clients/:user_email', auth, contr.getUniqueClient);
+router.post('/signup', userCtrl.addUser);
+// router.get('/logout', authentic, userCtrl.logout);
+router.post('/signin',  userCtrl.signinUser);
+// router.delete('/',  authentic, userCtrl.removeAllClients);
+// router.get('/clients',  authentic, userCtrl.getAllClients);
+// router.put('/:user_email',  authentic, userCtrl.updateUser);
+// router.delete('/:user_email',  authentic, userCtrl.removeUniqueClient);
+// router.get('/clients/:user_email',  authentic, userCtrl.getUniqueClient);
 
 export default router;

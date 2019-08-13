@@ -6,26 +6,36 @@ import response from '../helpers/response';
 dotenv.config();
 const secret_key = process.env.SECRET_KEY;
 
-export default function (req, res, next) {
+/**
+ * @param {Request} req
+ * @param {Response} res
+ * @param {RequestRedirect} next 
+*/
+export default function(req, res, next) {
   try {
     return jwt.verify(
       req.headers.token, secret_key, (err, decoded) => {
         if (err) {
-          return response.response(res, 401, 'Unauthorized personnel', true)
+          return response.response(
+            res, 401, 'Authentication failed-wrong token', true)
         }
 
-        const user = decoded.data;
-        const realUser = users.find(u => {
-          if(u && u.email == user.email && u.password == user.password)
-            return true
+        let tokenUser = decoded.data;
+        const realUser = users.find(actualUser => {
+          if((tokenUser.email == actualUser.email) && (
+            tokenUser.password == actualUser.password)) {
+            return true;
+          }
         });
-        
+
         if(realUser) next(realUser);
-        else return response.response(res, 401, 'Authentication failed', true);
+        else return response.response(
+          res, 401, 'Authentication failed', true);
       }
     )
   }
   catch(err) {
-    return response.response(res, 500, err, true)
+    return response.response(
+      res, 401, 'Authentication failed', true)
   }
 }

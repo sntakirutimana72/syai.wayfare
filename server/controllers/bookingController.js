@@ -1,92 +1,117 @@
-import bookings from '../models/bookings';
-import fDate from '../helpers/fDate';
-import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
 // import trips from '../models/trips';
-
-dotenv.config();
+import fDate from '../helpers/fDate';
+import filter from '../helpers/filter';
+import isParam from '../helpers/isParam';
+import unique from '../helpers/unIdentity';
+import response from '../helpers/response';
+import bookings from '../models/bookings';
+import rslvSeat from '../helpers/resolveSeat';
+import { bookSchema } from '../helpers/validator';
 
 class bookingController {
   // get All bookings
-  static async getAll(req, res) {}
+  static getAll({id: user_id, is_admin}, req, res, next) {
+    const allBookings = filter.filterBookings(is_admin, user_id);
+    if (!allBookings) response.response(res, 404, 'Resources not found', true);
+    return response.response(res, 200, allBookings);
+  }
   
   // Get a booking by id
-  static async getUnique(req, res) {
-    const { booking_id } = req.params;
-    if (!booking_id) return res.status(400).json({
-      status: 400, error: "Invalid request parameter"
-    });
-    
-    const booking = bookings.find((book) => {
-      return Object.keys(book)[0] === booking_id;
-    });
+  static getUnique({id: user_id, is_admin}, req, res, next) {
+    const book_id = isParam.intParam(req.params);
+    if (!book_id) return response.response(res, 400, 'Bad parameter', true);
 
-    if (!booking) return res.status(404).json(
-      {status: 404, error: "No record found"});
-
-    return  res.status(200).json(
-      {status: 200, data: [booking]
-    });
+    const book = filter.filterBookings(is_admin, user_id, book_id);
+    if (!book) return response.response(res, 404, 'Resource not found', true);
+    return response.response(res, 200, [book]);
   }
 
   // Book a seat on a trip
-  static book(req, res, next) {
-    let { body: boookData } = req;
+  static book({id: user_id, is_admin}, req, res, next) {
+    if (is_admin) return response.response(res, 403, 'Action prohibited', true);
+    let newBook = bookSchema.book(req.body);
+    if (!newBook) return response.response(
+      res, 401, 'Operation aborted-Invalid inputs', true);
+
+    const foundTrip = filter.filterTrips(is_admin, newBook.trip_id);
+    if (!foundTrip) return response.response(
+      res, 404, 'Operation aborted-Needed resource not found', true);
+
+    const seatNumber = rslvSeat.resolve(foundTrip, newBook.seat_number);
+    if (typeof(seatNumber) === 'object') return response.response(
+      res, 400, `seat taken, available-[${seatNumber}]`, true);
+    else if (!seatNumber) return response.response(
+      res, 401, 'Sorry, all seats taken', true);
     
-    const id = bookings.length + 1; // Will implement a smart helper for that 
-    boookData.created_on = fDate(Date());
-    bookings.push({[id]: boookData});
+    if (!newBook.seat_number) newBook.seat_number = seatNumber;
 
-    const ibookD = {...boookData};
-    return jwt.sign({
-      data: ibookD}, process.env.SECRET_KEY, (err, token) => {
-        if (err) return res.status(401).json({
-          status: 401, error: 'Invalid Auth token'});
+    let {id: tId, seating_capacity, created_on: creatOn, seats, ...others} = foundTrip;
+    newBook = Object.assign(newBook, others);
+    others = tId = seating_capacity = creatOn = null;
 
-        return res.status(201).json({
-          status: 201, data: {
-            token, data: ibookD
-          }}
-        );;
-      }
-    );
+    let id = unique.uniqueID(bookings), 
+    booked_on = fDate.curDate();
+    newBook.id = id;
+    newBook.user_id = user_id;
+    newBook.booked_on = booked_on;
+    id = user_id = booked_on = null;
+    
+    bookings.push(newBook);
+    return response.response(res, 201, newBook);
   }
 
   // Update single booking status and info
-  static async updateBooking(req, res) {
-    const { book_id } = req.params;
-    const booking = bookings.find((book) => {
-      return Object.keys(book)[0] === booking_id;
-    });
+  static updateBooking({is_admin, id: user_id}, req, res, nextt) {
+    if (is_admin) return response.response(res, 403, 'Action prohibited', true);
+    const book_id = isParam.intParam(req.params);
+    if (!book_id) return response.response(
+      res, 400, 'Operation aborted-Bad parameter', true);
 
-    if (!booking) return res.status(404).json({
-      status: 404, error: 'No record found'})
+    const book_update = bookSchema.update(req.body);
+    if (!book_update) return response.response(
+      res, 401, 'Operation aborted-Invalid inputs', true);
 
-    const { status } = req.body;
-    const id = Object.keys(booking)[0];
-    booking[id].status = status
+    const book = filter.filterBookings(is_admin, user_id, book_id);
+    if (!book) return response.response(
+      res, 404, 'Operation aborted-Resource not found', true);
+    const relTrip = filter.filterTrips(is_admin, book.trip_id);
 
-    return res.status(200).json({
-      status: 200, message: 'Succeccefully updated!'
-    });
+    const seatNumber = rslvSeat.resolve(relTrip, book_update.seat_number);
+    if (typeof(seatNumber) === 'object') return response.response(
+      res, 400, `seat occupied, available-[${seatNumber}]`, true);
+    else if (!seatNumber) return response.response(
+      res, 401, 'Sorry, all seats occupied', true);
+
+    relTrip.seats.push(book.seat_number);
+    book.seat_number = seatNumber;
+    return response.response(res, 200, book);
   }
 
   // Cancel single booking
-  static async deleteUnique(req, res) {
-    const { book_id } = req.params;
-    const booking = bookings[book_id];
+  static deleteUnique({is_admin, id: user_id}, req, res, next) {
+    if (is_admin) return response.response(res, 403, 'Action prohibited', true);
+    const book_id = isParam.intParam(req.params);
+    if (!book_id) return response.response(
+      res, 400, 'Operation aborted-Bad parameter', true);
 
-    if (!booking) return res.status(404).json({
-      status: 404, error: 'No record found'})
+    const book = filter.filterBookings(is_admin, user_id, book_id);
+    if (!book) return response.response(
+      res, 404, 'Operation aborted-Resource not found', true);
+    const relTrip = filter.filterTrips(is_admin, book.trip_id);
 
-    bookings.splice(bookings.indexOf(booking), 1);
-    return res.status(200).json({
-      status: 200, message: 'Succeccefully deleted!'
-    });
+    book.status = 'cancelled';
+    relTrip.seats.push(book.seat_number);
+    return response.response(res, 200, book);
   }
 
   // cancel all booking
-  static async deleteAll(req, res) {}
+  static deleteAll({is_admin, id}, req, res, next) {
+    if (is_admin) return response.response(res, 403, 'Action prohibited', true);
+    if (filter.cancelFilteredBookings(id)) return response.response(
+      res, 404, 'Resources not found', true);
+
+    return response.response(res, 200, []);
+  }
 }
 
 export default bookingController;

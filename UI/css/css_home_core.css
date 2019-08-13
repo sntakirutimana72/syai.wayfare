@@ -69,7 +69,6 @@ div[c-name] {
   border-radius: 8px;
   position: relative;
   color: rgb(57, 26, 65);
-  font-family: Verdana, Tahoma, sans-serif;
   background-color: rgba(255, 255, 255, .6);
 }
 
@@ -149,4 +148,26 @@ a {
   font-size: 14px;
   color: aquamarine;
   font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif
+}
+
+@media screen and (max-width: 800px) {
+  .slides {
+    margin: 30% 20px;
+    margin-bottom: 10px;
+  }
+  .lslide.slide {
+    font-size: 3vw;
+  }
+  .slide > p#slide-h {
+    font-size: 4vw;
+  }
+  .slide blockquote {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (max-width: 350px) {
+  .slides {
+    margin: 35% 5px;
+    margin-bottom: 10px;
+  }
 }

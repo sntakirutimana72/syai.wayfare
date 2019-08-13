@@ -2,7 +2,7 @@
   "name": "way-farer",
   "version": "1.0.0",
   "description": "Travel schedule and Trip booking system",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "test": "babel-node -- ./node_modules/mocha/bin/mocha ./server/test",
     "start:server": "babel-node -- ./server/server.js",

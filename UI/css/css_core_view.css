@@ -82,6 +82,12 @@ li.menu-item a {
   color: rgb(221, 113, 198);
 }
 
+@media screen and (max-width: 500px) {
+  li.menu-item a {
+    padding: 10px 14px;
+  }
+}
+
 li.focused-tab a {
   border-bottom: 2px solid rgb(11, 211, 151);
 }
