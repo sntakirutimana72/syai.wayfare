@@ -3,9 +3,9 @@ import bookings from '../models/bookings';
 
 export default class {
   /**
-   * @param {Boolean} is_admin user privilege indicator
-   * @param {Number} user_id a user id number
-   * @param {Number} book_ref a booking resource reference number
+    * @param {Boolean} is_admin user privilege indicator
+    * @param {Number} user_id a user id number
+    * @param {Number} book_ref a booking resource reference number
   */
   static filterBookings(is_admin, user_id, book_ref=null) {
     if (!is_admin) {
@@ -32,8 +32,8 @@ export default class {
   }
 
   /**
-   * @param {Boolean} is_admin user privilege indicator
-   * @param {Number} trip_ref a trip resource reference number
+    * @param {Boolean} is_admin user privilege indicator
+    * @param {Number} trip_ref a trip resource reference number
   */
   static filterTrips(is_admin, trip_ref) {
     if (!is_admin) {
@@ -58,7 +58,7 @@ export default class {
   }
 
   /**
-   * @param {Number} user_id  a user id number
+    * @param {Number} user_id  a user id number
   */
   static cancelFilteredBookings(user_id) {
     let status;
@@ -72,8 +72,8 @@ export default class {
   }
 
   /**
-   * @param {Number} trip a trip resource object
-   * @param {Number} sc new seating capacity 
+    * @param {Number} trip a trip resource object
+    * @param {Number} sc new seating capacity 
   */
   static updateTripSeatings(trip, sc) {
     trip.seats = (() => {

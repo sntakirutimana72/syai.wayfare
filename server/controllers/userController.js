@@ -20,7 +20,7 @@ class userController {
   // create a user
   static addUser(req, res) {
     let user = userSchema.signup(req.body);
-    if(!user) return response.response(res, 201, 'Invalid inputs', true);
+    if(!user) return response.response(res, 400, 'Invalid inputs', true);
 
     const verifyEmail = unique.uniquEmail(user.email);
     if (!verifyEmail) return response.response(
@@ -42,7 +42,7 @@ class userController {
             user = null;
 
             return response.response(
-              res, 200, {token, firstname, lastname, email});
+              res, 201, {token, firstname, lastname, email});
           }
         );
       }
