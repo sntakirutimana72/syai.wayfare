@@ -4,6 +4,7 @@
   "description": "Travel schedule and Trip booking system",
   "main": "app.js",
   "scripts": {
+    "test": "babel-node -- ./node_modules/mocha/bin/mocha ./server/test/index.js",
     "start:server": "babel-node -- ./app.js",
     "start:dev": "nodemon --exec babel-node -- ./app.js"
   },
@@ -27,6 +28,8 @@
     "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "nodemon": "^1.19.1"
   }
 }

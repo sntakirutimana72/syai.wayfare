@@ -12,7 +12,7 @@ class bookingController {
   // get All bookings
   static getAll({id: user_id, is_admin}, req, res, next) {
     const allBookings = filter.filterBookings(is_admin, user_id);
-    if (!allBookings) response.response(res, 404, 'Resources not found', true);
+    if (!allBookings) return response.response(res, 404, 'Resources not found', true);
     return response.response(res, 200, allBookings);
   }
   
@@ -20,7 +20,7 @@ class bookingController {
   static getUnique({id: user_id, is_admin}, req, res, next) {
     const book_id = isParam.intParam(req.params);
     if (!book_id) return response.response(res, 400, 'Bad parameter', true);
-
+    
     const book = filter.filterBookings(is_admin, user_id, book_id);
     if (!book) return response.response(res, 404, 'Resource not found', true);
     return response.response(res, 200, [book]);
@@ -29,6 +29,7 @@ class bookingController {
   // Book a seat on a trip
   static book({id: user_id, is_admin}, req, res, next) {
     if (is_admin) return response.response(res, 403, 'Action prohibited', true);
+
     let newBook = bookSchema.book(req.body);
     if (!newBook) return response.response(
       res, 401, 'Operation aborted-Invalid inputs', true);
@@ -38,14 +39,17 @@ class bookingController {
       res, 404, 'Operation aborted-Needed resource not found', true);
 
     const seatNumber = rslvSeat.resolve(foundTrip, newBook.seat_number);
-    if (typeof(seatNumber) === 'object') return response.response(
-      res, 400, `seat taken, available-[${seatNumber}]`, true);
-    else if (!seatNumber) return response.response(
-      res, 401, 'Sorry, all seats taken', true);
-    
+    if (typeof(seatNumber) === 'object') {
+      return response.response(
+        res, 400, `seat taken, available-[${seatNumber}]`, true);
+    } else if (!seatNumber) {
+      return response.response(res, 401, 'Sorry, all seats taken', true);
+    }
     if (!newBook.seat_number) newBook.seat_number = seatNumber;
 
-    let {id: tId, seating_capacity, created_on: creatOn, seats, ...others} = foundTrip;
+    let {
+      id: tId, seating_capacity, 
+      created_on: creatOn, seats, ...others } = foundTrip;
     newBook = Object.assign(newBook, others);
     others = tId = seating_capacity = creatOn = null;
 
@@ -61,8 +65,9 @@ class bookingController {
   }
 
   // Update single booking status and info
-  static updateBooking({is_admin, id: user_id}, req, res, nextt) {
+  static updateBooking({is_admin, id: user_id}, req, res, next) {
     if (is_admin) return response.response(res, 403, 'Action prohibited', true);
+
     const book_id = isParam.intParam(req.params);
     if (!book_id) return response.response(
       res, 400, 'Operation aborted-Bad parameter', true);
@@ -83,7 +88,7 @@ class bookingController {
       res, 401, 'Sorry, all seats occupied', true);
 
     relTrip.seats.push(book.seat_number);
-    book.seat_number = seatNumber;
+    book.seat_number = book_update.seat_number;
     return response.response(res, 200, book);
   }
 
@@ -107,7 +112,7 @@ class bookingController {
   // cancel all booking
   static deleteAll({is_admin, id}, req, res, next) {
     if (is_admin) return response.response(res, 403, 'Action prohibited', true);
-    if (filter.cancelFilteredBookings(id)) return response.response(
+    if (!filter.cancelFilteredBookings(id)) return response.response(
       res, 404, 'Resources not found', true);
 
     return response.response(res, 200, []);

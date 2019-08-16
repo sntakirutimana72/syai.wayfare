@@ -13,10 +13,10 @@
 [svc-col-d] {
   box-sizing: border-box;
   padding: 10px;
-  display: inline-block;
   overflow: auto;
   float: left;
-  width: 24%;
+  width: 25%;
+  display: grid
 }
 
 [s-item] img {
@@ -46,12 +46,20 @@ span[s-i-data] {
   font-size: 18px;
 }
 @media screen and (max-width: 800px) {
+  [svc-bd] {
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
   [svc-col-d] {
-    width: 50%;
+    width: 100%;
   }
 }
 @media screen and (max-width: 400px) {
+  [svc-bd] {
+    -webkit-column-count: unset;
+    column-count: unset;
+  }
   [svc-col-d] {
-    width: 100%;
+    display: block;
   }
 }
