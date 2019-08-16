@@ -1,6 +1,7 @@
-import users from '../models/users';
 import dotenv from 'dotenv';
+import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import users from '../models/users';
 import response from '../helpers/response';
 
 dotenv.config();
@@ -22,10 +23,8 @@ export default function(req, res, next) {
 
         let tokenUser = decoded.data;
         const realUser = users.find(actualUser => {
-          if((tokenUser.email == actualUser.email) && (
-            tokenUser.password == actualUser.password)) {
-            return true;
-          }
+          return actualUser ? ((tokenUser.email == actualUser.email) && (
+            bcrypt.compareSync(tokenUser.password, actualUser.password))) : null;
         });
 
         if(realUser) next(realUser);

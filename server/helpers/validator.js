@@ -2,7 +2,7 @@ import Joi from 'joi';
 
 export class userSchema {
   /**
-   * @param {FormData} data User Signup form data object
+    * @param {FormData} data User Signup form data object
   */
   static signup(data) {
     const schema = Joi.object().keys({
@@ -11,10 +11,10 @@ export class userSchema {
         .regex(/^([a-z][a-zA-Z0-9_]+@wayfarer.it)$/)
         .required(), 
       firstname: Joi.string()
-        .regex(/^([a-zA-Z]{2,})\s?([a-zA-Z]{2,})$/)
+        .regex(/^([a-zA-Z]{2,})(\s[a-zA-Z]{2,})*$/)
         .required(),
       lastname: Joi.string()
-        .regex(/^([a-zA-Z]{2,})\s?([a-zA-Z]{2,})$/)
+        .regex(/^([a-zA-Z]{2,})(\s[a-zA-Z]{2,})*$/)
         .required(), 
       gender: Joi.string()
         .valid(['male', 'female', 'custom'])
@@ -30,12 +30,13 @@ export class userSchema {
 
     try {
       const user = Joi.validate(data, schema);
+      // console.log(user.error?user.error.details[0].message:user.error);
       return !user.error ? user.value : null;
     } catch {return;}
   }
 
   /**
-   * @param {FormData} data User Signin form data object
+    * @param {FormData} data User Signin form data object
   */
   static signin(data) {
     const schema = Joi.object().keys({
@@ -54,7 +55,7 @@ export class userSchema {
   }
 
   /**
-   * @param {FormData} data User update form data object
+    * @param {FormData} data User update form data object
   */
   static update(data) {
     const schema = Joi.object().keys({
@@ -78,7 +79,7 @@ export class userSchema {
 
 export class bookSchema {
   /**
-   * @param {FormData} data New Booking form data object
+    * @param {FormData} data New Booking form data object
   */
   static book(data) {
     const schema = Joi.object().keys({
@@ -91,16 +92,14 @@ export class bookSchema {
 
     try {
       const newBook = Joi.validate(data, schema);
-      console.log(newBook);
       return !newBook.error ? newBook.value : null;
     } catch(err) {
-      console.log(err);
       return;
     }
   }
 
   /**
-   * @param {FormData} data Booking update form data object
+    * @param {FormData} data Booking update form data object
   */
   static update(data) {
     const schema = Joi.object().keys({
@@ -118,7 +117,7 @@ export class bookSchema {
 
 export class tripSchema {
   /**
-   * @param {FormData} data Trip creation form data object
+    * @param {FormData} data Trip creation form data object
   */
   static create(data) {
     const schema = Joi.object().keys({
@@ -146,7 +145,7 @@ export class tripSchema {
   }
 
   /**
-   * @param {FormData} data Trip update form data object
+    * @param {FormData} data Trip update form data object
   */
   static update(data) {
     const schema = Joi.object().keys({
@@ -158,7 +157,8 @@ export class tripSchema {
 
     try {
       const update = Joi.validate(data, schema);
-      return !update.error ? update.value : null;
-    } catch {return}
+      return (!update.error && Object.keys(
+        update.value).length) ? update.value : null;
+    } catch(err) {return}
   }
 };

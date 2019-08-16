@@ -2,7 +2,7 @@ import Joi from 'joi';
 
 export default class {
   /**
-   * @param {Number} params URL parameter as integer
+    * @param {Number} params URL parameter as integer
   */
   static intParam(params) {
     const schema = Joi.object().keys({
@@ -17,7 +17,7 @@ export default class {
   }
 
   /**
-   * @param {String} params URL parameter as string 
+    * @param {String} params URL parameter as string 
   */
   static stringParam(params) {
     const schema = Joi.object().keys({

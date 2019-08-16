@@ -20,7 +20,7 @@ class userController {
   // create a user
   static addUser(req, res) {
     let user = userSchema.signup(req.body);
-    if(!user) return response.response(res, 201, 'Invalid inputs', true);
+    if(!user) return response.response(res, 400, 'Invalid inputs', true);
 
     const verifyEmail = unique.uniquEmail(user.email);
     if (!verifyEmail) return response.response(
@@ -42,7 +42,7 @@ class userController {
             user = null;
 
             return response.response(
-              res, 200, {token, firstname, lastname, email});
+              res, 201, {token, firstname, lastname, email});
           }
         );
       }
@@ -56,7 +56,7 @@ class userController {
       res, 401, `Invalid inputs`, true);
     
     const logMeIn = users.find((user) => {
-      if (user && (me.email === user.email)) return true;
+      return user ? (me.email === user.email) : null;
     });    
     if (!logMeIn) {
       return response.response(res, 401, 'Authentication Failed', true);
@@ -64,12 +64,13 @@ class userController {
     if (!bcrypt.compareSync(me.password, logMeIn.password)) {
       return response.response(res, 401, 'Authentication Failed', true);
     }
-    me = null;
-    let {firstname, lastname, email, password} = logMeIn;
     return jwt.sign(
-      {data: {email, password}}, secret, {expiresIn: 86400}, (err, token) => {
+      {data: me}, secret, {expiresIn: 86400}, (err, token) => {
         if(err) return response.response(res, 500, 'API bug', true);
-        return response.response(res, 200, {token, firstname, lastname, email});
+        return response.response(res, 200, {
+          token, firstname: logMeIn.firstname, 
+          lastname: logMeIn.lastname, email: me.email
+        });
       });
   }
 

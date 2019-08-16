@@ -10,8 +10,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((err, res, req, next) => {
-  console.log(err.message);
+app.use((error, res, req, next) => {
+  console.log('\n\n<<<<error>>>>\n\n');
   next();
 })
 
