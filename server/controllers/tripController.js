@@ -121,7 +121,7 @@ class tripController {
   static deleteAll({is_admin}, req, res, next) {
     if (!is_admin) return response.response(
       res, 403, 'Operation aborted-Not allowed', true);
-
+    
     const cancelled = filter.cancelAllActiveTrips();
     if (!cancelled) return response.response(
       res, 404, "Operation aborted-Resources' not found", true); 

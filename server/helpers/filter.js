@@ -90,6 +90,7 @@ export default class {
         trip.seats.splice((bk.seat_number - 1), 1);
       }
     });
+    
     trip.seating_capacity = sc;
   }
 

@@ -64,7 +64,6 @@ class userController {
     if (!bcrypt.compareSync(me.password, logMeIn.password)) {
       return response.response(res, 401, 'Authentication Failed', true);
     }
-
     return jwt.sign(
       {data: me}, secret, {expiresIn: 86400}, (err, token) => {
         if(err) return response.response(res, 500, 'API bug', true);
