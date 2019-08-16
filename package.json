@@ -4,7 +4,7 @@
   "description": "Travel schedule and Trip booking system",
   "main": "app.js",
   "scripts": {
-    "test": "babel-node -- ./node_modules/mocha/bin/mocha ./server/test",
+    "test": "babel-node -- ./node_modules/mocha/bin/mocha ./server/test/index.js",
     "start:server": "babel-node -- ./app.js",
     "start:dev": "nodemon --exec babel-node -- ./app.js"
   },

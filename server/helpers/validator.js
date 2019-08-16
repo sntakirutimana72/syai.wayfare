@@ -92,10 +92,8 @@ export class bookSchema {
 
     try {
       const newBook = Joi.validate(data, schema);
-      console.log(newBook);
       return !newBook.error ? newBook.value : null;
     } catch(err) {
-      console.log(err);
       return;
     }
   }
@@ -159,7 +157,8 @@ export class tripSchema {
 
     try {
       const update = Joi.validate(data, schema);
-      return !update.error ? update.value : null;
-    } catch {return}
+      return (!update.error && Object.keys(
+        update.value).length) ? update.value : null;
+    } catch(err) {return}
   }
 };

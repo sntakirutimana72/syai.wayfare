@@ -4,14 +4,12 @@ export default class {
     * @param {Number} number It's is a seat number to be verified if not taken
   */
   static resolve(trip, number) {
+    if (!trip.seats.length) return false;
     if (number) {
       if (!trip.seats.includes(number)) return trip.seats;
-      else {
-        trip.seats.splice(trip.seats.indexOf(number), 1);
-        return true;
-      }
-    } else if (!trip.seats.length) return false;
-
+      trip.seats.splice(trip.seats.indexOf(number), 1);
+      return true;
+    }
     return trip.seats.shift();
   }
 }

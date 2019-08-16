@@ -48,7 +48,7 @@ class tripController {
     if (!is_admin) return response.response(
       res, 403, 'Operation aborted-Not allowed', true);
 
-    const trip_id = isParam.intParam(req.params);
+    let trip_id = isParam.intParam(req.params);
     if (!trip_id) return response.response(
       res, 400, 'Operation aborted-Bad parameter', true);
 
@@ -61,6 +61,7 @@ class tripController {
       res, 404, 'Operation aborted-Resource not found', true);
     trip_id = null;
 
+    let sc;
     if (sc = trip_update.seating_capacity) {
       if (sc === trip.seating_capacity) return response.response(
         res, 400, 'Resource unchanged, already up-to-date', true);
@@ -85,6 +86,7 @@ class tripController {
       }
     }
 
+    let bln;
     if (bln = trip_update.bus_licence_number) {
       trip.bus_licence_number = bln;
     }
@@ -120,17 +122,9 @@ class tripController {
     if (!is_admin) return response.response(
       res, 403, 'Operation aborted-Not allowed', true);
 
-    trips.forEach(trip => {
-      if (trip.status === 'cancelled') return;
-      trip.status = 'cancelled';
-
-      bookings.forEach(book => {
-        if ((book.status === 'cancelled') || (
-          book.trip_id !== trip.id)) return;
-        
-        book.status = trip.status;
-      });
-    });
+    const cancelled = filter.cancelAllActiveTrips();
+    if (!cancelled) return response.response(
+      res, 404, "Operation aborted-Resources' not found", true); 
     return response.response(res, 200, trips);
   }
 }

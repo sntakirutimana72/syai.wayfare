@@ -90,5 +90,24 @@ export default class {
         trip.seats.splice((bk.seat_number - 1), 1);
       }
     });
+    trip.seating_capacity = sc;
+  }
+
+  /**
+    * Cancelling all active Trips and related bookings
+  */
+  static cancelAllActiveTrips() {
+    
+    const cancels = trips.filter(trip => {
+      if (trip.status === 'cancelled') return;
+      trip.status = 'cancelled';
+
+      bookings.forEach(book => {
+        if ((book.status === 'cancelled') || (book.trip_id !== trip.id)) return;
+        book.status = trip.status;
+      });
+      return true;
+    });
+    return cancels.length ? cancels : null;
   }
 }

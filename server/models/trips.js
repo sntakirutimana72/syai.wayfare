@@ -13,20 +13,22 @@ let trips = [
     seats: (function(){
       let s = [];
       for (let i=1; i<=30; i++) s.push(i);
+      return s;
     })()
   }, {
     id: 2,
     origin: 'DownTown',
     destination: 'Kimironko',
-    fare: 253.3, 
+    fare: 253, 
     status: 'active',
-    seating_capacity: 27,
+    seating_capacity: 2,
     trip_date: '13-Aug-2019',
     created_on: '13-Aug-2019',
     bus_licence_number: 'RAD772M',
     seats: (function(){
       let s = [];
-      for (let i=1; i<=27; i++) s.push(i);
+      for (let i=1; i<=2; i++) s.push(i);
+      return s;
     })()
   }, {
     id: 3,
@@ -41,6 +43,7 @@ let trips = [
     seats: (function(){
       let s = [];
       for (let i=1; i<=35; i++) s.push(i);
+      return s;
     })()
   }, {
     id: 4,
@@ -48,13 +51,14 @@ let trips = [
     destination: 'Nyanza',
     fare: 233, 
     status: 'cancelled',
-    seating_capacity: 55,
+    seating_capacity: 15,
     trip_date: '10-Aug-2019',
     created_on: '13-Aug-2019',
     bus_licence_number: 'RAD779T',
     seats: (function(){
       let s = [];
-      for (let i=1; i<=55; i++) s.push(i);
+      for (let i=1; i<=15; i++) s.push(i);
+      return s;
     })()
   }
 ];
