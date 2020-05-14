@@ -6,6 +6,7 @@
   "scripts": {
     "test": "babel-node -- ./node_modules/mocha/bin/mocha ./server/test/index.js",
     "start:server": "babel-node -- ./app.js",
+    "start": "node app.js",
     "start:dev": "nodemon --exec babel-node -- ./app.js"
   },
   "author": "Ntakirutimana Steven by Andela",
