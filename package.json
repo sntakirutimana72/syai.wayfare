@@ -1,10 +1,9 @@
 {
-  "name": "way-farer",
+  "name": "syai.wayfare",
   "version": "1.0.0",
   "description": "Travel schedule and Trip booking system",
   "main": "app.js",
   "scripts": {
-    "test": "babel-node -- ./node_modules/mocha/bin/mocha ./server/test/index.js",
     "start": "babel-node -- app.js",
     "nodem": "nodemon --exec babel-node -- ./app.js"
   },
@@ -17,7 +16,7 @@
     "eslint": "^6.0.1",
     "express": "^4.17.1",
     "joi": "^14.3.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.1",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "mocha": "^6.2.0",
