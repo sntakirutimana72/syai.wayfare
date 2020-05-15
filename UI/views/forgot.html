@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>New Password</title>
+  <title>Forgot?</title>
 
   <script src='../js/jquery_3_4_1.js'></script>
   <script src='../js/events_core_API_v1.js'></script>
@@ -16,7 +16,7 @@
 
 <body>
   <div m-menu-bar>
-    <a company-brand href="./index.html">
+    <a company-brand href="/">
       <div c-logo><img src="../images/company-logo.png" alt="LOGO" /></div>
       <div c-name><i id="way">WAY</i><i id="fare">FARER</i></div>
     </a>
@@ -35,20 +35,15 @@
   </div>
 
   <div class='for-forgot signup-form'>
-    <div forgot-header>Set new password</div>
+    <div forgot-header>Reset account password</div>
 
-    <form action="./dashboard.html" class="form-fields" for-forgot>
-      <label for="password">New password</label>
+    <form action="./newPassword.html" class="form-fields" for-forgot>
+      <label for="email">Email address</label>
       <div class="textInput">
-        <input type="password" id="password" class="field" placeholder="Enter new password">
+        <input type="text" id="email" class="field" placeholder="Enter your email">
       </div>
 
-      <label for="comf-password">Comfirm password</label>
-      <div class="textInput">
-        <input type="comf-password" id="password" class="field" placeholder="Re-enter password">
-      </div>
-
-      <input type="submit" class="button" restore value="Reset">
+      <input type="submit" class="button" restore value="restore">
     </form>
   </div>
 </body>

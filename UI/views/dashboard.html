@@ -3,15 +3,15 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Dashboard - My Bookings</title>
+  <title>HOME</title>
 
   <script src='../js/jquery_3_4_1.js'></script>
   <script src='../js/events_core_API_v1.js'></script>
-  <script> let data = JSON.stringify(data); </script>
+  <script>let data = JSON.stringify(data); </script>
   <script src='../js/user_account_info_API.js'></script>
   <script src='../js/booking_form_API.js'></script>
-  <script src='../js/booking_API_v1.js'></script>
   <script src='../js/user_API_v1.js'></script>
+  <script src='../js/user_API_client.js'></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel='stylesheet' type="text/css" href="../css/css_core_view.css">
@@ -21,7 +21,7 @@
 
 <body>
   <div m-menu-bar>
-    <a company-brand href="./index.html">
+    <a company-brand href="/">
       <div c-logo><img src="../images/company-logo.png" alt="LOGO" /></div>
       <div c-name><i id="way">WAY</i><i id="fare">FARER</i></div>
     </a>
@@ -82,7 +82,7 @@
           <img left-nav-op-icon my-booked-seats src="../images/booked.png" title="My Trip Booking Plan" />
           <span l-m-name>MY BOOKING SCHEDULE</span>
         </div>
-        <ul left-nav-m001 bo-se>
+        <ul left-nav-m001>
           <li l-n-m001><a href="./bookings1.html"><span roll></span>ALL</a></li>
           <li l-n-m001><a href="./bookings1.html"><span roll></span>BUS</a></li>
           <li l-n-m001><a href="./bookings1.html"><span roll></span>BOAT</a></li>
@@ -90,6 +90,51 @@
           <li l-n-m001><a href="./bookings1.html"><span roll></span>FLIGHT</a></li>
           <li l-n-m001><a><span roll></span>SEARCH</a></li>
         </ul>
+      </div>
+    </div>
+  </div>
+
+  <div body-data>
+    <div data-nav n-003>
+      <div b-data-struct all-booki-info>
+        <span b-data-struct-title>MY TOTAL BOOKINGS</span>
+        <span b-data-struct-values>
+          <o>Bookings:</o>
+          <o num>8, 321</o>
+          <o>Percent:</o><i b-data-struct-perc>89%</i>
+        </span>
+      </div>
+      <div b-data-struct bu-booki-info>
+        <span b-data-struct-title>BUS BOOKINGS</span>
+        <span b-data-struct-values>
+          <o>Bookings:</o>
+          <o num>8, 321</o>
+          <o>Percent:</o><i b-data-struct-perc>89%</i>
+        </span>
+      </div>
+      <div b-data-struct bo-booki-info>
+        <span b-data-struct-title>BOAT BOOKINGS</span>
+        <span b-data-struct-values>
+          <o>Bookings:</o>
+          <o num>8, 321</o>
+          <o>Percent:</o><i b-data-struct-perc>89%</i>
+        </span>
+      </div>
+      <div b-data-struct tra-booki-info>
+        <span b-data-struct-title>TRAIN BOOKINGS</span>
+        <span b-data-struct-values>
+          <o>Bookings:</o>
+          <o num>8, 321</o>
+          <o>Percent:</o><i b-data-struct-perc>89%</i>
+        </span>
+      </div>
+      <div b-data-struct fli-booki-info>
+        <span b-data-struct-title>FLIGHT BOOKINGS</span>
+        <span b-data-struct-values>
+          <o>Bookings:</o>
+          <o num>8, 321</o>
+          <o>Percent:</o><i b-data-struct-perc>89%</i>
+        </span>
       </div>
     </div>
   </div>
@@ -130,14 +175,12 @@
         <div seat-num c-lab>Seat number</div>
         <div seat-num c-val>
           <select disabled>
-            <option selected disabled>Select seat number</option>
+            <option selected disabled>Select seat num</option>
           </select>
         </div>
       </div>
     </form>
   </div>
-
-  <div book-trip-cli-msg-nav></div>
 </body>
 
 </html>

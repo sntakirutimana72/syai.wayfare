@@ -5,15 +5,15 @@
   "main": "app.js",
   "scripts": {
     "test": "babel-node -- ./node_modules/mocha/bin/mocha ./server/test/index.js",
-    "start:server": "babel-node -- ./app.js",
-    "start": "node app.js",
-    "start:dev": "nodemon --exec babel-node -- ./app.js"
+    "start": "babel-node -- app.js",
+    "nodem": "nodemon --exec babel-node -- ./app.js"
   },
   "author": "Ntakirutimana Steven by Andela",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.6",
     "dotenv": "^8.0.0",
+    "ejs": "^3.1.2",
     "eslint": "^6.0.1",
     "express": "^4.17.1",
     "joi": "^14.3.1",
